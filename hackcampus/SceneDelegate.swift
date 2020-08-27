@@ -25,7 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController = UIHostingController(rootView: SheetView(currentHeight: .constant(0.0), movingOffset: .constant(0.0)) {
+                Rectangle().foregroundColor(Color.red).frame(height: 500)})
             self.window = window
             window.makeKeyAndVisible()
         }
