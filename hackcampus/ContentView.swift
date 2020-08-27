@@ -10,11 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Button(action: {
-            // do nothing
-        }) {
-            Text("Click me to do nothing")
-        }
+        Text("Hello World")
     }
 }
 
