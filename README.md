@@ -159,10 +159,15 @@ In the future, the GeoPenguin team will continue to improve the notification sys
 
 <br>
 
-© Copyright. All Rights Reserved.
+© Copyright. All Rights Reserved. GeoPenguin 2020.
+
+
+<br>
 
 ____
 
+
+<br>
 
 
 
