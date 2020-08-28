@@ -133,9 +133,36 @@ On the other hand, the Swift backend consisted of Apple/XCode’s MapKit to appl
 
 <br>
 
+## Addressing Concerns
+
+<br>
+
+While there exist some concerns over privacy, data protection, and user security, Geopenguin will be implementing and designing security measures to integrate. These measures will mainly incorporate home addresses being stored in a secure cloud database and not on individual users’ devices. This prevents lower-level problems such as social media toxicity, bad reviews, and privacy breaches/problems. 
+
+<br>
+
 ## Future Aspirations
 
 <br>
+
+In the future, the GeoPenguin team will continue to improve the notification system and the accuracy of the geofencing calculations done in the backend. Also, the team plans to add personalization for the user on the settings portion of the app. For example, this would include an option to choose a notification style, options to go into dark mode, activation of voice command siri to read the list of reminders, and other cool features that would ultimately improve the app’s quality of life.
+
+<br>
+
+### Future Update Preview
+
+<br>
+
+![Imgur](https://i.imgur.com/OifR4EN.png)
+
+<br>
+
+<br>
+
+© Copyright. All Rights Reserved.
+
+____
+
 
 
 
