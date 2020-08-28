@@ -18,6 +18,9 @@
 		74B2358A24F86B490047536E /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74B2358724F86B490047536E /* Poppins-Bold.ttf */; };
 		74B2358B24F86B490047536E /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74B2358824F86B490047536E /* Poppins-SemiBold.ttf */; };
 		74B2358C24F86B490047536E /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74B2358924F86B490047536E /* Poppins-Regular.ttf */; };
+		D86CCE2124F9837E00CAB00E /* CheckboxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CCE2024F9837E00CAB00E /* CheckboxField.swift */; };
+		D86CCE2324F9887800CAB00E /* ScrollListTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CCE2224F9887800CAB00E /* ScrollListTitle.swift */; };
+		D86CCE2524F98A5C00CAB00E /* ScrollListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CCE2424F98A5C00CAB00E /* ScrollListContent.swift */; };
 		D8EB3B0824F8959F0081CEE8 /* ScrollListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB3B0724F8959F0081CEE8 /* ScrollListView.swift */; };
 		D8EB3B0A24F8AF1E0081CEE8 /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB3B0924F8AF1E0081CEE8 /* AddCategoryView.swift */; };
 		D8EB3B0D24F8B86E0081CEE8 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB3B0C24F8B86E0081CEE8 /* Category.swift */; };
@@ -59,6 +62,9 @@
 		74B2358724F86B490047536E /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		74B2358824F86B490047536E /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		74B2358924F86B490047536E /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		D86CCE2024F9837E00CAB00E /* CheckboxField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxField.swift; sourceTree = "<group>"; };
+		D86CCE2224F9887800CAB00E /* ScrollListTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollListTitle.swift; sourceTree = "<group>"; };
+		D86CCE2424F98A5C00CAB00E /* ScrollListContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollListContent.swift; sourceTree = "<group>"; };
 		D8EB3B0724F8959F0081CEE8 /* ScrollListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollListView.swift; sourceTree = "<group>"; };
 		D8EB3B0924F8AF1E0081CEE8 /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
 		D8EB3B0C24F8B86E0081CEE8 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -175,8 +181,11 @@
 				D8EB3B0C24F8B86E0081CEE8 /* Category.swift */,
 				7455E89224F7021900D42F35 /* ContentView.swift */,
 				D8EB3B0724F8959F0081CEE8 /* ScrollListView.swift */,
+				D86CCE2224F9887800CAB00E /* ScrollListTitle.swift */,
 				D8EB3B0E24F8C4AF0081CEE8 /* AddCategoryItemView.swift */,
 				D8EB3B0924F8AF1E0081CEE8 /* AddCategoryView.swift */,
+				D86CCE2024F9837E00CAB00E /* CheckboxField.swift */,
+				D86CCE2424F98A5C00CAB00E /* ScrollListContent.swift */,
 			);
 			path = ReminderViews;
 			sourceTree = "<group>";
@@ -315,7 +324,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D86CCE2524F98A5C00CAB00E /* ScrollListContent.swift in Sources */,
 				7455E88F24F7021900D42F35 /* AppDelegate.swift in Sources */,
+				D86CCE2324F9887800CAB00E /* ScrollListTitle.swift in Sources */,
+				D86CCE2124F9837E00CAB00E /* CheckboxField.swift in Sources */,
 				D8EB3B0824F8959F0081CEE8 /* ScrollListView.swift in Sources */,
 				7455E89124F7021900D42F35 /* SceneDelegate.swift in Sources */,
 				D8EB3B0A24F8AF1E0081CEE8 /* AddCategoryView.swift in Sources */,

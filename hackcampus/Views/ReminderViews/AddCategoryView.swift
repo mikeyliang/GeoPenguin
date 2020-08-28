@@ -12,8 +12,9 @@ struct AddCategoryView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var categoriesContainer: CategoriesContainer
+    @Binding var categories: [Category]
     @State private var name = ""
+    @State private var itemName = ""
     
     var body: some View {
         NavigationView {
@@ -21,21 +22,25 @@ struct AddCategoryView: View {
                 Section(header: Text("Add a category name")) {
                     TextField("Name", text: $name)
                 }
+                
+                Section(header: Text("Add at least one item")) {
+                    TextField("Item Name", text: $itemName)
+                }
             }
             .navigationBarTitle("Category")
             .navigationBarItems(leading: Button("Cancel") {
                 self.presentationMode.wrappedValue.dismiss()
                 }, trailing: Button("Save") {
-                let category = Category(categoryName: self.name)
-                self.categoriesContainer.categories.append(category)
+                    let category = Category(categoryName: self.name, items: [CategoryItem(itemName: self.itemName)])
+                self.categories.append(category)
                 self.presentationMode.wrappedValue.dismiss()
             })
         }
     }
 }
 
-struct AddCategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddCategoryView(categoriesContainer: CategoriesContainer())
-    }
-}
+//struct AddCategoryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddCategoryView(categories: Binding<[Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)])
+//    }
+//}

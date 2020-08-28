@@ -12,7 +12,7 @@ struct AddCategoryItemView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var categoriesContainer: CategoriesContainer
+    @Binding var categories: [Category]
     @State var index: Int
     @State private var name = ""
     
@@ -28,15 +28,15 @@ struct AddCategoryItemView: View {
             .navigationBarItems(leading: Button("Cancel") {
                 self.presentationMode.wrappedValue.dismiss()
                 }, trailing: Button("Add") {
-                    self.categoriesContainer.addItem(index: self.index, itemName: self.name)
+                    self.categories[self.index].items.append(CategoryItem(itemName: self.name))
                     self.presentationMode.wrappedValue.dismiss()
             })
         }
     }
 }
 
-struct AddCategoryItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddCategoryItemView(categoriesContainer: CategoriesContainer(), index: 0)
-    }
-}
+//struct AddCategoryItemView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddCategoryItemView(categories: Binding<[Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)]>, index: 0)
+//    }
+//}

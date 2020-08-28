@@ -8,43 +8,43 @@
 
 import SwiftUI
 
-class CategoriesContainer: ObservableObject {
-    @Published var categories: [Category] = [Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)]
-    
-    func getCategoryName(index: Int) -> String {
-        return categories[index].categoryName
-    }
-    
-    func getNumberOfItems(index: Int) -> Int {
-        return categories[index].numOfItems
-    }
-    
-    func getItemName(index: Int, itemIndex: Int) -> String {
-        return categories[index].items[itemIndex].itemName
-    }
-    
-    func getItemCheck(index: Int, itemIndex: Int) -> Bool {
-        return categories[index].items[itemIndex].checked
-    }
-    
-    func changeCheck(index: Int, itemIndex: Int) {
-        categories[index].items[itemIndex].checked = !categories[index].items[itemIndex].checked
-    }
-    
-    func addItem(index: Int, itemName: String) {
-        categories[index].items.append(CategoryItem(itemName: itemName))
-        categories[index].numOfItems += 1
-        print(categories[index].items)
-    }
-}
+//class CategoriesContainer: ObservableObject {
+//    @Published var categories: [Category] = [Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)]
+//
+//    func getCategoryName(index: Int) -> String {
+//        return categories[index].categoryName
+//    }
+//
+//    func getNumberOfItems(index: Int) -> Int {
+//        return categories[index].numOfItems
+//    }
+//
+//    func getItemName(index: Int, itemIndex: Int) -> String {
+//        return categories[index].items[itemIndex].itemName
+//    }
+//
+//    func getItemCheck(index: Int, itemIndex: Int) -> Bool {
+//        return categories[index].items[itemIndex].checked
+//    }
+//
+//    func changeCheck(index: Int, itemIndex: Int) {
+//        categories[index].items[itemIndex].checked = !categories[index].items[itemIndex].checked
+//    }
+//
+//    func addItem(index: Int, itemName: String) {
+//        categories[index].items.append(CategoryItem(itemName: itemName))
+//        categories[index].numOfItems += 1
+//        print(categories[index].items)
+//    }
+//}
 
 struct ContentView: View {
     
     @State private var showAddCategory = false
-    @ObservedObject var categoriesContainer = CategoriesContainer()
+    @State private var categories: [Category] = [Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)]
     
     var totalItems: Int {
-        let array = categoriesContainer.categories
+        let array = categories
         var totalNumber = 0
         
         for category in array {
@@ -124,14 +124,14 @@ struct ContentView: View {
                             
                         }
                     }.sheet(isPresented: $showAddCategory) {
-                        AddCategoryView(categoriesContainer: self.categoriesContainer)
+                        AddCategoryView(categories: self.$categories)
                     }
                     
                     Spacer()
                 }.padding(EdgeInsets(top: 43, leading: 35, bottom: 0, trailing: 0))
                 
                 
-                ScrollListView(categoriesContainer: self.categoriesContainer)
+                ScrollListView(categories: self.$categories)
                 
                 Spacer()
                 
