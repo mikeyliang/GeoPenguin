@@ -50,3 +50,9 @@ struct ScrollListView: View {
 //        ScrollListView(categories: Binding<[Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)]>)
 //    }
 //}
+
+struct ScrollListView_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}

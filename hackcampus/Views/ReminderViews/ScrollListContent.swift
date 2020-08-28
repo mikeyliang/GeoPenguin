@@ -16,7 +16,7 @@ struct ScrollListContent: View {
         
                     List() {
                     
-                        Spacer()
+                        
                         
                         LoopViews(categories: $categories)
                         
@@ -46,21 +46,35 @@ struct LoopViews: View {
     @State private var showAddItem = false
     
     var body: some View {
-        ForEach(0..<self.categories.count) { index in
-            ForEach(0..<self.categories[index].numOfItems, id: \.self) { itemIndex in
-                CheckboxField(id: self.categories[index].items[itemIndex].id, label: self.categories[index].items[itemIndex].itemName, size: 14, textSize: 14)
-            }
-            Button(action: {
-                self.selectedButton = index
-                self.showAddItem.toggle()
-            }) {
-                ScrollListAddButton()
-            }
-            .padding()
-        }
-        .sheet(isPresented: self.$showAddItem) {
+        
+        
+        
+
+                ForEach(0..<self.categories.count) { index in
+                    HStack(alignment: .top) {
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            self.selectedButton = index
+                            self.showAddItem.toggle()
+                        }) {
+                            ScrollListAddButton()
+                        }
+                    }
+                    ForEach(0..<self.categories[index].numOfItems, id: \.self) { itemIndex in
+
+
+                        CheckboxField(id:
+                            self.categories[index].items[itemIndex].id, label: self.categories[index].items[itemIndex].itemName, size: 14, textSize: 14)
+                    }
+                    
+
+                    
+                }.sheet(isPresented: self.$showAddItem) {
             AddCategoryItemView(categories: self.$categories, index: self.selectedButton!)
-        }
+                }
+    
     }
 }
 

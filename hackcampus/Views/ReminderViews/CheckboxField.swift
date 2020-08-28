@@ -42,9 +42,9 @@ struct CheckboxField: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: self.size, height: self.size)
                 Text(label)
-                    .font(Font.system(size: size))
+                    .font(.custom("Poppins-Regular", size: size))
                 Spacer()
-            }.foregroundColor(self.color)
+            }.foregroundColor(self.color).padding(.leading, 10)
         }
         .foregroundColor(Color.white)
     }
