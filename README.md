@@ -29,7 +29,7 @@ jt793@cornell.edu
 
 
 ### Travis Zhang (Freshman)
-tz@cornell.edu
+tz98@cornell.edu
   
 
 <br>
