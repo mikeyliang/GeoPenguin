@@ -28,7 +28,7 @@ struct AddCategoryItemView: View {
             .navigationBarItems(leading: Button("Cancel") {
                 self.presentationMode.wrappedValue.dismiss()
                 }, trailing: Button("Add") {
-                    self.categories[self.index].items.append(CategoryItem(itemName: self.name))
+                    self.categories[self.index].addItem(self.name)
                     self.presentationMode.wrappedValue.dismiss()
             })
         }

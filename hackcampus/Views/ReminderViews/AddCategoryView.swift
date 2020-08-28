@@ -13,6 +13,7 @@ struct AddCategoryView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var categories: [Category]
+    @Binding var categoryIndex: Int
     @State private var name = ""
     @State private var itemName = ""
     
@@ -33,6 +34,7 @@ struct AddCategoryView: View {
                 }, trailing: Button("Save") {
                     let category = Category(categoryName: self.name, items: [CategoryItem(itemName: self.itemName)])
                 self.categories.append(category)
+                self.categoryIndex += 1
                 self.presentationMode.wrappedValue.dismiss()
             })
         }

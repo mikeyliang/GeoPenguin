@@ -42,6 +42,7 @@ struct ContentView: View {
     
     @State private var showAddCategory = false
     @State private var categories: [Category] = [Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)]
+    @State private var categoryIndex = 0
     
     var totalItems: Int {
         let array = categories
@@ -124,14 +125,14 @@ struct ContentView: View {
                             
                         }
                     }.sheet(isPresented: $showAddCategory) {
-                        AddCategoryView(categories: self.$categories)
+                        AddCategoryView(categories: self.$categories, categoryIndex: self.$categoryIndex)
                     }
                     
                     Spacer()
                 }.padding(EdgeInsets(top: 43, leading: 35, bottom: 0, trailing: 0))
                 
                 
-                ScrollListView(categories: self.$categories)
+                ScrollListView(categories: self.$categories, categoryIndex: self.$categoryIndex)
                 
                 Spacer()
                 

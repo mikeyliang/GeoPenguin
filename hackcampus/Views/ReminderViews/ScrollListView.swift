@@ -11,6 +11,7 @@ import SwiftUI
 struct ScrollListView: View {
     
     @Binding var categories: [Category]
+    @Binding var categoryIndex: Int
     
     func removeLines() {
         // To remove only extra separators below the list:
@@ -34,7 +35,7 @@ struct ScrollListView: View {
                             
                             ScrollListTitle(categoryName: self.$categories[index].categoryName, numOfItems: self.$categories[index].numOfItems)
 
-                            ScrollListContent(categories: self.$categories)
+                            ScrollListContent(categories: self.$categories, categoryIndex: index)
                     
                         }
                         // VStack 1 ends here

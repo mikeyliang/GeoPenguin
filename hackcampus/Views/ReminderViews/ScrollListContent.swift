@@ -11,20 +11,15 @@ import SwiftUI
 struct ScrollListContent: View {
     
     @Binding var categories: [Category]
+    var categoryIndex: Int
+    
     var body: some View {
         ZStack(alignment: .topTrailing) {
         
-                    List() {
-                    
-                        
-                        
-                        LoopViews(categories: $categories)
-                        
-                    }.buttonStyle(PlainButtonStyle())
-                    .frame(width: 255, height: 300).cornerRadius(30).shadow(radius: 5)
+                LoopViews(categories: $categories, categoryIndex: categoryIndex)
             
-                }
-                .padding(EdgeInsets(top: 20.0, leading: 60.0, bottom: 20.0, trailing: 60.0))
+        }
+        .padding(EdgeInsets(top: 20.0, leading: 60.0, bottom: 20.0, trailing: 60.0))
     }
 }
 
@@ -42,39 +37,32 @@ struct ScrollListAddButton: View {
 struct LoopViews: View {
     
     @Binding var categories: [Category]
-    @State private var selectedButton: Int? = nil
+    var categoryIndex: Int
+    @State private var selectedButton = 0
     @State private var showAddItem = false
     
     var body: some View {
+
+        List() {
         
-        
-        
-
-                ForEach(0..<self.categories.count) { index in
-                    HStack(alignment: .top) {
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            self.selectedButton = index
-                            self.showAddItem.toggle()
-                        }) {
-                            ScrollListAddButton()
-                        }
-                    }
-                    ForEach(0..<self.categories[index].numOfItems, id: \.self) { itemIndex in
-
-
-                        CheckboxField(id:
-                            self.categories[index].items[itemIndex].id, label: self.categories[index].items[itemIndex].itemName, size: 14, textSize: 14)
-                    }
-                    
-
-                    
-                }.sheet(isPresented: self.$showAddItem) {
-            AddCategoryItemView(categories: self.$categories, index: self.selectedButton!)
-                }
-    
+            Spacer()
+            
+            ForEach(0..<self.categories[categoryIndex].items.count, id: \.self) { itemIndex in
+                CheckboxField(id: self.categories[self.categoryIndex].items[itemIndex].id, label: self.categories[self.categoryIndex].items[itemIndex].itemName, size: 14, textSize: 14)
+            }
+            
+            Button(action: {
+                self.selectedButton = self.categoryIndex
+                self.showAddItem.toggle()
+            }) {
+                ScrollListAddButton()
+            }
+            .padding()
+            .sheet(isPresented: self.$showAddItem) {
+                AddCategoryItemView(categories: self.$categories, index: self.selectedButton)
+            }
+        }.buttonStyle(PlainButtonStyle())
+        .frame(width: 255, height: 300).cornerRadius(30).shadow(radius: 5)
     }
 }
 
