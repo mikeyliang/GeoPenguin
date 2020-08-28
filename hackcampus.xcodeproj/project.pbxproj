@@ -113,9 +113,7 @@
 		7455E88D24F7021900D42F35 /* hackcampus */ = {
 			isa = PBXGroup;
 			children = (
-				74B2358724F86B490047536E /* Poppins-Bold.ttf */,
-				74B2358924F86B490047536E /* Poppins-Regular.ttf */,
-				74B2358824F86B490047536E /* Poppins-SemiBold.ttf */,
+				D85F0BAA24F88F89007E421D /* Fonts */,
 				D8BD3C2024F7764F002076D0 /* Views */,
 				7455E88E24F7021900D42F35 /* AppDelegate.swift */,
 				7455E89024F7021900D42F35 /* SceneDelegate.swift */,
@@ -151,6 +149,16 @@
 				7455E8B224F7021A00D42F35 /* Info.plist */,
 			);
 			path = hackcampusUITests;
+			sourceTree = "<group>";
+		};
+		D85F0BAA24F88F89007E421D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				74B2358724F86B490047536E /* Poppins-Bold.ttf */,
+				74B2358924F86B490047536E /* Poppins-Regular.ttf */,
+				74B2358824F86B490047536E /* Poppins-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		D8BD3C2024F7764F002076D0 /* Views */ = {
