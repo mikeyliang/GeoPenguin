@@ -43,24 +43,26 @@ struct LoopViews: View {
     
     var body: some View {
 
-        List() {
-        
-            Spacer()
+        List {
+            
+            HStack {
+                Spacer()
+                Button(action: {
+                    self.selectedButton = self.categoryIndex
+                    self.showAddItem.toggle()
+                }) {
+                    ScrollListAddButton()
+                }
+                .padding()
+                .sheet(isPresented: self.$showAddItem) {
+                    AddCategoryItemView(categories: self.$categories, index: self.selectedButton)
+                }
+            }
             
             ForEach(0..<self.categories[categoryIndex].items.count, id: \.self) { itemIndex in
                 CheckboxField(id: self.categories[self.categoryIndex].items[itemIndex].id, label: self.categories[self.categoryIndex].items[itemIndex].itemName, size: 14, textSize: 14)
             }
             
-            Button(action: {
-                self.selectedButton = self.categoryIndex
-                self.showAddItem.toggle()
-            }) {
-                ScrollListAddButton()
-            }
-            .padding()
-            .sheet(isPresented: self.$showAddItem) {
-                AddCategoryItemView(categories: self.$categories, index: self.selectedButton)
-            }
         }.buttonStyle(PlainButtonStyle())
         .frame(width: 255, height: 300).cornerRadius(30).shadow(radius: 5)
     }
