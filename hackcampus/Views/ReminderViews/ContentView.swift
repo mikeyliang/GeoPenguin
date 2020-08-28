@@ -8,7 +8,51 @@
 
 import SwiftUI
 
+class CategoriesContainer: ObservableObject {
+    @Published var categories: [Category] = [Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)]
+    
+    func getCategoryName(index: Int) -> String {
+        return categories[index].categoryName
+    }
+    
+    func getNumberOfItems(index: Int) -> Int {
+        return categories[index].numOfItems
+    }
+    
+    func getItemName(index: Int, itemIndex: Int) -> String {
+        return categories[index].items[itemIndex].itemName
+    }
+    
+    func getItemCheck(index: Int, itemIndex: Int) -> Bool {
+        return categories[index].items[itemIndex].checked
+    }
+    
+    func changeCheck(index: Int, itemIndex: Int) {
+        categories[index].items[itemIndex].checked = !categories[index].items[itemIndex].checked
+    }
+    
+    func addItem(index: Int, itemName: String) {
+        categories[index].items.append(CategoryItem(itemName: itemName))
+        categories[index].numOfItems += 1
+        print(categories[index].items)
+    }
+}
+
 struct ContentView: View {
+    
+    @State private var showAddCategory = false
+    @ObservedObject var categoriesContainer = CategoriesContainer()
+    
+    var totalItems: Int {
+        let array = categoriesContainer.categories
+        var totalNumber = 0
+        
+        for category in array {
+            totalNumber += category.numOfItems
+        }
+        
+        return totalNumber
+    }
 
     var body: some View {
         
@@ -37,8 +81,7 @@ struct ContentView: View {
                 }
                 
                 HStack(alignment: .bottom) {
-                    
-                        
+                     
                         VStack {
                            
                             ZStack {
@@ -49,9 +92,7 @@ struct ContentView: View {
                                 HStack(alignment: .top) {
                                     Image("bell").resizable().frame(width: 12, height: 12)
                                     
-                                    //TODO: Text here should be set equal to total list length from all categories
-                                    
-                                    Text("5").font(.custom("Poppins-Bold", size: 10)).foregroundColor(.white)
+                                    Text("\(totalItems)").font(.custom("Poppins-Bold", size: 10)).foregroundColor(.white)
                                     
                                 }
                         
@@ -70,11 +111,10 @@ struct ContentView: View {
                     // Vertical Line + Add Category
                     Rectangle().fill(Color(red: 235/256, green: 235/256, blue: 235/256)).frame(width: 250, height: 2).cornerRadius(100)
                     
+                    Spacer()
                     
                     Button(action: {
-                        
-                        //TODO: Add action to add new category
-                        
+                        self.showAddCategory.toggle()
                     }) {
                         ZStack {
                         
@@ -83,11 +123,15 @@ struct ContentView: View {
                             Image("add").resizable().frame(width:11, height:11).foregroundColor(.white)
                             
                         }
-                    }.padding(.leading, 29)
+                    }.sheet(isPresented: $showAddCategory) {
+                        AddCategoryView(categoriesContainer: self.categoriesContainer)
+                    }
+                    
+                    Spacer()
                 }.padding(EdgeInsets(top: 43, leading: 35, bottom: 0, trailing: 0))
                 
                 
-                ScrollListView()
+                ScrollListView(categoriesContainer: self.categoriesContainer)
                 
                 Spacer()
                 

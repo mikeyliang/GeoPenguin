@@ -10,7 +10,11 @@ import SwiftUI
 
 struct ScrollListView: View {
     
-    init() {
+    @ObservedObject var categoriesContainer: CategoriesContainer
+    @State private var showAddItem = false
+    @State private var selectedButton: Int? = nil
+    
+    func removeLines() {
         // To remove only extra separators below the list:
         UITableView.appearance().tableFooterView = UIView()
 
@@ -18,10 +22,11 @@ struct ScrollListView: View {
         UITableView.appearance().separatorStyle = .none
     }
     
-    
     var body: some View {
         
-        HStack {
+        removeLines()
+        
+        return HStack {
             
             Spacer()
         
@@ -29,167 +34,83 @@ struct ScrollListView: View {
                 
                 HStack {
                     
-                    VStack {
-                        
-                        HStack {
-                    
-                
-                        Text("COVID").font(.custom("Poppins-bold", size: 20)).padding(.leading, -20)
-                    
-                    ZStack {
-                    
-                        Rectangle().fill(LinearGradient(gradient: Gradient(colors: [Color(red: 157/256, green: 78/256, blue: 221/256), Color(red: 224/256, green: 170/256, blue: 255/256)]), startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0))).frame(width: 30, height: 20.8695).cornerRadius(15).shadow(color: Color(red: 0, green: 0, blue: 0).opacity(0.5), radius: 4, x: 1, y: 4)
-          
-                        Text("2").font(.custom("Poppins-Bold", size: 10)).foregroundColor(.white)
-                        
-                    }.padding(.leading, 20)
-                
-                    }.padding(.top, 20)
-                
-    
-                
-                
-            
-                ZStack(alignment: .topTrailing) {
-                
-                    
-                    
-                        List() {
-                            
-                            Spacer()
+                    ForEach(0..<self.categoriesContainer.categories.count) {index in
+                        // VStack 1 starts here
+                        VStack {
                             
                             HStack {
-                                Button(action: {
                                     
-                                }) {
-                                    Image(systemName: "checkmark.square")
-                                }.padding(.leading, 20)
+                                    Text("\(self.categoriesContainer.getCategoryName(index: index))").font(.custom("Poppins-bold", size: 20)).padding(.leading, -20)
                                 
-                                Text("Item 1").padding(.leading, 20).font(.custom("Poppins-Regular", size: 15))
-                                    
-                                
-                            }
-                            
-                            HStack {
-                                
-                                Button(action: {
-                                    
-                                }) {
-                                    Image(systemName: "checkmark.square")
-                                }.padding(.leading, 20)
-                                
-                                Text("Item 2").padding(.leading, 20).font(.custom("Poppins-Regular", size: 15))
-                                
-                            }
-
-                        }.frame(width: 255, height: 300).cornerRadius(30).shadow(radius: 5)
-                    
-
-                        Button(action: {
-                            
-                        }) {
-                            
-                            ZStack {
-                                Rectangle().fill(LinearGradient(gradient: Gradient(colors: [Color(red: 157/256, green: 78/256, blue: 221/256), Color(red: 224/256, green: 170/256, blue: 255/256)]), startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0))).frame(width:20, height: 20).cornerRadius(15).shadow(color: Color(red: 0, green: 0, blue: 0).opacity(0.5), radius: 4, x: 1, y: 4)
-                                
-                                Image("add").resizable().frame(width:7, height:7).foregroundColor(.white)
-                            }
-                    }.padding()
-                    
-                    
-                }
-                .padding(EdgeInsets(top: 20.0, leading: 60.0, bottom: 20.0, trailing: 60.0))
-                
-                    }
-                    
-                    VStack {
-                                        
-                                        HStack {
-                                    
-                                
-                                        Text("COVID").font(.custom("Poppins-bold", size: 20)).padding(.leading, -20)
-                                    
                                     ZStack {
                                     
                                         Rectangle().fill(LinearGradient(gradient: Gradient(colors: [Color(red: 157/256, green: 78/256, blue: 221/256), Color(red: 224/256, green: 170/256, blue: 255/256)]), startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0))).frame(width: 30, height: 20.8695).cornerRadius(15).shadow(color: Color(red: 0, green: 0, blue: 0).opacity(0.5), radius: 4, x: 1, y: 4)
                           
-                                        Text("2").font(.custom("Poppins-Bold", size: 10)).foregroundColor(.white)
+                                        Text("\(self.categoriesContainer.getNumberOfItems(index: index))").font(.custom("Poppins-Bold", size: 10)).foregroundColor(.white)
                                         
                                     }.padding(.leading, 20)
-                                
-                                    }.padding(.top, 20)
-                                
                     
+                            }.padding(.top, 20)
+
+                            ZStack(alignment: .topTrailing) {
+                    
+                                List() {
                                 
-                                
-                            
-                                ZStack(alignment: .topTrailing) {
-                                
+                                    Spacer()
                                     
-                                    
-                                        List() {
-                                            
-                                            Spacer()
-                                            
-                                            HStack {
-                                                
-                                                Button(action: {
-                                                    
-                                                }) {
-                                                    Image(systemName: "checkmark.square")
-                                                }.padding(.leading, 20)
-                                                
-                                                Text("Item 1").padding(.leading, 40).font(.custom("Poppins-Regular", size: 15))
-                                                
-                                                
-                                            }
-                                            
+                                    ForEach(0..<self.categoriesContainer.categories.count) { index in
+                                        ForEach(0..<self.categoriesContainer.getNumberOfItems(index: index)) { itemIndex in
                                             HStack {
                                                 Button(action: {
-                                                    
+                                                    self.categoriesContainer.changeCheck(index: index, itemIndex: itemIndex)
+                                                    print("Button Showed")
                                                 }) {
-                                                    Image(systemName: "checkmark.square")
+                                                    Image(systemName: self.categoriesContainer.getItemCheck(index: index, itemIndex: itemIndex) ? "checkmark.square.fill" : "checkmark.square")
                                                 }.padding(.leading, 20)
+                                            
+                                                Text("\(self.categoriesContainer.getItemName(index: index, itemIndex: itemIndex))").padding(.leading, 20).font(.custom("Poppins-Regular", size: 15))
                                                 
-                                                Text("Item 2").padding(.leading, 40).font(.custom("Poppins-Regular", size: 15))
                                             }
-
-                                        }.frame(width: 255, height: 300).cornerRadius(30).shadow(radius: 5)
-                                    
-
+                                        }
+                                        
                                         Button(action: {
-                                            
+                                            self.selectedButton = index
+                                            self.showAddItem.toggle()
                                         }) {
-                                            
                                             
                                             ZStack {
                                                 Rectangle().fill(LinearGradient(gradient: Gradient(colors: [Color(red: 157/256, green: 78/256, blue: 221/256), Color(red: 224/256, green: 170/256, blue: 255/256)]), startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0))).frame(width:20, height: 20).cornerRadius(15).shadow(color: Color(red: 0, green: 0, blue: 0).opacity(0.5), radius: 4, x: 1, y: 4)
                                                 
                                                 Image("add").resizable().frame(width:7, height:7).foregroundColor(.white)
                                             }
-                                    }.padding()
-                                    
-                                    
-                                }.padding(EdgeInsets(top: 20.0, leading: 60.0, bottom: 20.0, trailing: 60.0))
-                                
+                                        }
+                                        .padding()
                                     }
+                                    .sheet(isPresented: self.$showAddItem) {
+                                        AddCategoryItemView(categoriesContainer: self.categoriesContainer, index: self.selectedButton!)
+                                    }
+
+                                }.buttonStyle(PlainButtonStyle())
+                                .frame(width: 255, height: 300).cornerRadius(30).shadow(radius: 5)
+                        
+                            }
+                            .padding(EdgeInsets(top: 20.0, leading: 60.0, bottom: 20.0, trailing: 60.0))
                     
-                    
+                        }
+                        // VStack 1 ends here
+                    }
                 }
-                
-                
+   
+            }
             
-        }
-        
-            
-        
             Spacer()
+            
         }
     }
 }
 
 struct ScrollListView_Previews: PreviewProvider {
     static var previews: some View {
-        ScrollListView()
+        ScrollListView(categoriesContainer: CategoriesContainer())
     }
 }
