@@ -15,9 +15,9 @@
 		7455E89B24F7021A00D42F35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7455E89924F7021A00D42F35 /* LaunchScreen.storyboard */; };
 		7455E8A624F7021A00D42F35 /* hackcampusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455E8A524F7021A00D42F35 /* hackcampusTests.swift */; };
 		7455E8B124F7021A00D42F35 /* hackcampusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7455E8B024F7021A00D42F35 /* hackcampusUITests.swift */; };
-		74B2358A24F86B490047536E /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74B2358724F86B490047536E /* Poppins-Bold.ttf */; };
 		74B2358B24F86B490047536E /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74B2358824F86B490047536E /* Poppins-SemiBold.ttf */; };
 		74B2358C24F86B490047536E /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74B2358924F86B490047536E /* Poppins-Regular.ttf */; };
+		74F5781524F9B9AC005963B6 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74B2358724F86B490047536E /* Poppins-Bold.ttf */; };
 		D86CCE2124F9837E00CAB00E /* CheckboxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CCE2024F9837E00CAB00E /* CheckboxField.swift */; };
 		D86CCE2324F9887800CAB00E /* ScrollListTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CCE2224F9887800CAB00E /* ScrollListTitle.swift */; };
 		D86CCE2524F98A5C00CAB00E /* ScrollListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CCE2424F98A5C00CAB00E /* ScrollListContent.swift */; };
@@ -295,11 +295,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				74B2358B24F86B490047536E /* Poppins-SemiBold.ttf in Resources */,
+				74F5781524F9B9AC005963B6 /* Poppins-Bold.ttf in Resources */,
 				7455E89B24F7021A00D42F35 /* LaunchScreen.storyboard in Resources */,
 				7455E89824F7021A00D42F35 /* Preview Assets.xcassets in Resources */,
 				74B2358C24F86B490047536E /* Poppins-Regular.ttf in Resources */,
 				7455E89524F7021A00D42F35 /* Assets.xcassets in Resources */,
-				74B2358A24F86B490047536E /* Poppins-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
