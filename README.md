@@ -47,8 +47,6 @@ mikayla.jing.lin@gmail.com
 
 
 
-<br>
-___
 
 <br>
 
