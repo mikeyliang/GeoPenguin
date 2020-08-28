@@ -93,4 +93,47 @@ In observation of the current reminder apps currently on the market, the Reminde
 
 ## Solution
 
+<br>
+
+This is where GeoPenguin can help and promisingly reduce the rates of daily coronavirus infections. Our solution, Geo Penguin, is a healthcare and reminder application that emphasizes a default list of health reminders (during a pandemic) as well as personal supplies you don’t want to forget through an efficient and simple notification system. Along with some geofencing and basic distance calculations, (Team Name) can detect if a student is leaving their primary housing residence and remind them if they’ve forgotten anything they have written on the list. GeoPenguin’s functionalities sum up to tailor some of the problems students have on a day to day basis: forgetfulness, the cautious environment caused by the pandemic, and the inaccessibility to use a car on Campus to access the location feature on the IOS Reminder App.
+
+<br>
+
+## Underlying Technologies
+
+<br>
+
+GeoPenguin’s proprietary design was drawn using both Adobe Illustrator and Figma, a collaborative design/drawing environment. With the help of these two applications, the team at GeoPenguin were able to first, design the overall penguin, next, the penguin logo, after, the design of the app, and lastly, use “apply mockups” to show what our design would look like on the iPhone. GeoPenguin’s IOS Platform is built using SwiftUI for the frontend design and Swift for the backend to store data locally. The SwiftUI design code consisted of mainly font and image imports, HStacks, ZStacks, VStacks, Rectangles, and some custom Modifiers and Functions. 
+
+<br>
+
+### SwiftUI
+
+<br>
+
+![Imgur](https://i.imgur.com/6mwOHdn.png)
+
+<br>
+
+On the other hand, the Swift backend consisted of Apple/XCode’s MapKit to apply geofencing and Arrays to store user data locally on the app itself. 
+
+### Swift (Backend Data)
+
+<br>
+
+![Imgur](https://i.imgur.com/23bg5GI.png)
+
+<br>
+
+### Swift(Adding Categories and List Items)
+
+<br>
+
+![Imgur](https://i.imgur.com/3aNT9ru.png)
+
+<br>
+
+## Future Aspirations
+
+
 
