@@ -42,7 +42,6 @@ struct LoopViews: View {
     @State private var showAddItem = false
     
     var body: some View {
-
         List {
             
             HStack {
@@ -62,9 +61,11 @@ struct LoopViews: View {
             ForEach(0..<self.categories[categoryIndex].items.count, id: \.self) { itemIndex in
                 CheckboxField(id: self.categories[self.categoryIndex].items[itemIndex].id, label: self.categories[self.categoryIndex].items[itemIndex].itemName, size: 14, textSize: 14)
             }
+
             
         }.buttonStyle(PlainButtonStyle())
-        .frame(width: 255, height: 300).cornerRadius(30).shadow(radius: 5)
+        .frame(width: 255, height: 200).cornerRadius(30).shadow(radius: 5)
+        
     }
 }
 

@@ -8,36 +8,6 @@
 
 import SwiftUI
 
-//class CategoriesContainer: ObservableObject {
-//    @Published var categories: [Category] = [Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)]
-//
-//    func getCategoryName(index: Int) -> String {
-//        return categories[index].categoryName
-//    }
-//
-//    func getNumberOfItems(index: Int) -> Int {
-//        return categories[index].numOfItems
-//    }
-//
-//    func getItemName(index: Int, itemIndex: Int) -> String {
-//        return categories[index].items[itemIndex].itemName
-//    }
-//
-//    func getItemCheck(index: Int, itemIndex: Int) -> Bool {
-//        return categories[index].items[itemIndex].checked
-//    }
-//
-//    func changeCheck(index: Int, itemIndex: Int) {
-//        categories[index].items[itemIndex].checked = !categories[index].items[itemIndex].checked
-//    }
-//
-//    func addItem(index: Int, itemName: String) {
-//        categories[index].items.append(CategoryItem(itemName: itemName))
-//        categories[index].numOfItems += 1
-//        print(categories[index].items)
-//    }
-//}
-
 struct ContentView: View {
     
     @State private var showAddCategory = false
@@ -57,6 +27,7 @@ struct ContentView: View {
 
     var body: some View {
         
+        NavigationView {
         
             VStack(alignment: .leading) {
                 
@@ -74,7 +45,7 @@ struct ContentView: View {
                     
                     Spacer()
                 
-                }
+                }.padding(.bottom, 50)
                 
                 HStack {
                     
@@ -138,7 +109,7 @@ struct ContentView: View {
                 
             }.offset(y: 25)
 
-
+        }.navigationBarTitle("").navigationBarHidden(true)
             
     }
 }
