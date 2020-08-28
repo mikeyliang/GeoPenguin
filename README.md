@@ -46,7 +46,7 @@ ml2226@cornell.edu
 mikayla.jing.lin@gmail.com
 
 
-
+<br>
 
 <br>
 
@@ -86,9 +86,11 @@ Forgetfulness is a well-known issue among not only aging adults, but also colleg
 
 <br>
 
-In observation of the current reminder apps currently on the market, the Reminders App on IOS has issues that don’t tailor their reminder apps for specifically students. On of the main features they have is the Remind me at a Location, however, the drawback is the leaving/arriving reminder only works if you are driving a car. A Survey done by 214 National Universities reported that 46.8 percent of all students drive a car on/to campus (https://www.usnews.com/education/best-colleges/the-short-list-college/articles/2018-03-06/11-national-universities-where-students-rarely-bring-cars#:~:text=Among%20the%20214%20National%20Universities,to%20have%20cars%20on%20campus.) . This is less than the majority. By default, the rest of the students travel to school primarily by walking, biking, or taking a bus. 
+In observation of the current reminder apps currently on the market, the Reminders App on IOS has issues that don’t tailor their reminder apps for specifically students. On of the main features they have is the Remind me at a Location, however, the drawback is the leaving/arriving reminder only works if you are driving a car. A Survey done by 214 National Universities reported that 46.8 percent of all students drive a car on/to campus (https://www.usnews.com/education/best-colleges/the-short-list-college/articles/2018-03-06/11-national-universities-where-students-rarely-bring-cars#:~:text=Among%20the%20214%20National%20Universities,to%20have%20cars%20on%20campus.). This is less than the majority. By default, the rest of the students travel to school primarily by walking, biking, or taking a bus. 
 
 
 <br>
+
+## Solution
 
 
