@@ -115,7 +115,14 @@ GeoPenguin’s proprietary design was drawn using both Adobe Illustrator and Fig
 
 <br>
 
+<br>
+
+
 On the other hand, the Swift backend consisted of Apple/XCode’s MapKit to apply geofencing and Arrays to store user data locally on the app itself. 
+
+<br>
+
+<br>
 
 ### Swift (Backend Data)
 
