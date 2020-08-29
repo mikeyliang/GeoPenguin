@@ -39,7 +39,7 @@ struct Category: Identifiable, Codable {
 func save(_ categories: [Category]) {
     let data = categories.map { try? JSONEncoder().encode($0) }
     UserDefaults.standard.set(data, forKey: "categories")
-    print("Data Saved!")
+    print("Category Data Saved!")
 }
 
 func load() -> [Category] {
@@ -47,40 +47,44 @@ func load() -> [Category] {
         return [Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)]
     }
     
-    print("Data Loaded!")
+    print("Category Data Loaded!")
     
     return encodedData.map { try! JSONDecoder().decode(Category.self, from: $0) }
 }
 
 func savePresentIntro(_ presentIntro: Bool) {
-    UserDefaults.standard.set(presentIntro, forKey: "presentIntro")
-    print("Data Saved!")
+    let presentString = presentIntro ? "true":"false"
+    UserDefaults.standard.set(presentString, forKey: "presentIntro")
+    print("presentIntro Data Saved!")
 }
 
 func loadPresentIntro() -> Bool {
-    let presentIntro = UserDefaults.standard.bool(forKey: "presentIntro")
-    print("Data Loaded!")
-    return presentIntro
+    let presentString = UserDefaults.standard.string(forKey: "presentIntro")
+    print("presentIntro Data Loaded!")
+    let presentIntro = presentString != nil ? presentString! : "true"
+    return presentIntro == "true" ? true : false
 }
 
 func saveName(_ name: String) {
     UserDefaults.standard.set(name, forKey: "name")
-    print("Data Saved!")
+    print("name Data Saved!")
 }
 
 func loadName() -> String {
     let name = UserDefaults.standard.string(forKey: "name")
-    print("Data Loaded!")
+    print("name Data Loaded!")
     return name != nil ? name! : ""
 }
 
 func loadFirstTime() -> Bool {
-    let firstTime = UserDefaults.standard.bool(forKey: "firstTime")
-    print("Data Loaded!")
-    return firstTime
+    let firstString = UserDefaults.standard.string(forKey: "firstTime")
+    print("presentIntro Data Loaded!")
+    let firstTime = firstString != nil ? firstString! : "true"
+    return firstTime == "true" ? true : false
 }
 
 func saveFirstTime(_ firstTime: Bool) {
-    UserDefaults.standard.set(firstTime, forKey: "firstTime")
-    print("Data Saved!")
+    let firstString = firstTime ? "true":"false"
+    UserDefaults.standard.set(firstString, forKey: "firstTime")
+    print("firstTime Data Saved!")
 }
