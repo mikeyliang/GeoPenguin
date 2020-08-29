@@ -128,7 +128,6 @@ On the other hand, the Swift backend consisted of Apple/XCode’s MapKit to appl
 
 <br>
 
-![Imgur](https://i.imgur.com/23bg5GI.png)
 
 <br>
 
