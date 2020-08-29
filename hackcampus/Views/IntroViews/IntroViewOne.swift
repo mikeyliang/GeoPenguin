@@ -17,7 +17,6 @@ struct IntroViewOne: View {
     @State private var showDetails = false
     
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
-//    @ObservedObject private var keyboard = KeyboardResponder()
 
     var body: some View {
         
@@ -61,9 +60,6 @@ struct IntroViewOne: View {
                         .buttonStyle(DefaultButtonStyle())
                     }
                     Spacer().frame(height: 100)
-//                }.padding(.bottom, keyboard.currentHeight)
-//                .edgesIgnoringSafeArea(.bottom)
-//                .animation(.easeOut(duration: 0.16))
                 }.offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
                 
             }
