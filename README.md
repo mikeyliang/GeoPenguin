@@ -152,7 +152,7 @@ While there exist some concerns over privacy, data protection, and user security
 
 <br>
 
-In the future, the GeoPenguin team will continue to improve the notification system and the accuracy of the geofencing calculations done in the backend. Also, the team plans to add personalization for the user on the settings portion of the app. For example, this would include an option to choose a notification style, options to go into dark mode, activation of voice command siri to read the list of reminders, and other cool features that would ultimately improve the app’s quality of life.
+In the future, the GeoPenguin team will 1. develop the app for users with iPhones that don't support SwiftUI (iOS 13 and below), 2. reformat and redesign the intro section of thee app, 3. add more than one location to be geofenced so that users can be notified and reminded to wear a mask in places other than the original specified location, and 4. design and implement geofencing for user location so that we can send reminders whenever he/she is violating social distancing guidelines and save the time & location of these violations to aid in contact tracing. In addition, the team plans to add personalization for the user on the settings portion of the app. For example, this would include an option to choose a notification style, options to go into dark mode, activation of voice command siri to read the list of reminders, and other cool features that would ultimately improve the app’s quality.
 
 <br>
 
