@@ -29,6 +29,9 @@ struct MapContentView: View {
             ZStack(alignment: .bottom) {
                 MapView()
                     .edgesIgnoringSafeArea(.all)
+                    .sheet(isPresented: $locationManager.showAlert) {
+                        Text("Entered Region")
+                }
 
                 CustomSheetView(currentHeight: self.$currentHeight, movingOffset: self.$movingOffset)
             }

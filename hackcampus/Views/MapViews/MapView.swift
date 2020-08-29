@@ -11,25 +11,46 @@ import MapKit
 
 struct MapView: UIViewRepresentable {
     
-    var locationManager = LocationManager()
+    @ObservedObject var locationManager = LocationManager()
+    let map = MKMapView()
     
-    func startGeofencingMonitoring() {
-        print("Geofence starting")
-        
-        let coordinate = CLLocationCoordinate2D(latitude: 37.703026, longitude: -121.759735)
-    
-        let moniteringCoordinate = CLLocationCoordinate2DMake(coordinate.longitude, coordinate.latitude)
-        let moniteringRegion = CLCircularRegion.init(center: moniteringCoordinate, radius: 20.0, identifier: "test" )
-        locationManager.startMonitoring(for: moniteringRegion)
+    func setupData() {
+        print("Geofence started")
+        // 1. check if system can monitor regions
+        if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+     
+            // 2. region data
+            let title = "Home"
+            let coordinate = CLLocationCoordinate2DMake(37.703026, -121.759735)
+            let regionRadius = 500.0
+     
+            // 3. setup region
+            let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude,
+                longitude: coordinate.longitude), radius: regionRadius, identifier: title)
+            locationManager.startMonitoring(for: region)
+     
+            // 4. setup annotation
+            let restaurantAnnotation = MKPointAnnotation()
+            restaurantAnnotation.coordinate = coordinate;
+            restaurantAnnotation.title = "\(title)";
+            map.addAnnotation(restaurantAnnotation)
+     
+            // 5. setup circle
+            let circle = MKCircle(center: coordinate, radius: regionRadius)
+            map.addOverlay(circle)
+        }
+        else {
+            print("System can't track regions")
+        }
     }
     
     func makeUIView(context: Context) -> MKMapView {
-//        startGeofencingMonitoring()
-        let map = MKMapView()
         map.showsUserLocation = true
         map.userTrackingMode = .follow
         map.delegate = context.coordinator
         
+        
+        setupData()
         // TODO: Annotation for all Locations
 //        let annotation = MKPointAnnotation()
 //        annotation.title = "Test"

@@ -91,6 +91,7 @@
 		D86CCE2024F9837E00CAB00E /* CheckboxField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxField.swift; sourceTree = "<group>"; };
 		D86CCE2224F9887800CAB00E /* ScrollListTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollListTitle.swift; sourceTree = "<group>"; };
 		D86CCE2424F98A5C00CAB00E /* ScrollListContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollListContent.swift; sourceTree = "<group>"; };
+		D86CE57B24FAFD5800C7F63F /* location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = location.gpx; sourceTree = "<group>"; };
 		D881EFA224F9F32A00639DF9 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		D881EFA324F9F32A00639DF9 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
 		D881EFA524F9F33F00639DF9 /* SwiftUIPolygonGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIPolygonGeofence.swift; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 		7455E88224F7021900D42F35 = {
 			isa = PBXGroup;
 			children = (
+				D86CE57B24FAFD5800C7F63F /* location.gpx */,
 				7455E88D24F7021900D42F35 /* hackcampus */,
 				7455E8A424F7021A00D42F35 /* hackcampusTests */,
 				7455E8AF24F7021A00D42F35 /* hackcampusUITests */,

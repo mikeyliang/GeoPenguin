@@ -9,10 +9,11 @@
 import Foundation
 import MapKit
 
-class LocationManager: NSObject, ObservableObject {
+class LocationManager: NSObject, ObservableObject, MKMapViewDelegate {
     
     @Published var locationManager = CLLocationManager()
     @Published var location: CLLocation? = nil
+    var showAlert: Bool = false
     
     override init() {
         super.init()
@@ -30,7 +31,7 @@ class LocationManager: NSObject, ObservableObject {
     }
     
     func startMonitoring(for region: CLCircularRegion) {
-        self.locationManager.startMonitoring(for: region)
+        locationManager.startMonitoring(for: region)
     }
     
 }
@@ -46,11 +47,16 @@ extension LocationManager: CLLocationManagerDelegate {
         self.location = location
     }
     
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print("Geofence triggered")
-    }
-
+    // 1. user enter region
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("Geofence triggered")
+        print(manager.location!)
+        self.showAlert = true
+        print("Geofence enter")
+    }
+     
+    // 2. user exit region
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        self.showAlert = false
+        print("Geofence exit")
     }
 }

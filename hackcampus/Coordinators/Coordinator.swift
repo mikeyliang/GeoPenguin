@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 // Responsible for coordinating different delegate functions/eevnts from MKMapView delegate
-final class Coordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate {
+final class Coordinator: NSObject, MKMapViewDelegate {
     
     // create MapView control
     var control: MapView
@@ -43,11 +43,10 @@ final class Coordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate 
 //        return view
 //    }
     
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print("Geofence triggered")
-    }
-
-    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("Geofence triggered")
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let circleRenderer = MKCircleRenderer(overlay: overlay)
+        circleRenderer.strokeColor = UIColor.red
+        circleRenderer.lineWidth = 1.0
+        return circleRenderer
     }
 }
