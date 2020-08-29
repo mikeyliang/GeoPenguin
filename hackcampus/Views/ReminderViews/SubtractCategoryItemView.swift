@@ -1,15 +1,14 @@
 //
-//  AddCategoryItemView.swift
+//  SubtractCategoryItemView.swift
 //  hackcampus
 //
-//  Created by Travis Zhang on 8/27/20.
+//  Created by Travis Zhang on 8/29/20.
 //  Copyright © 2020 Michael Liang. All rights reserved.
 //
 
 import SwiftUI
 
-struct AddCategoryItemView: View {
-    
+struct SubtractCategoryItemView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var categories: [Category]
@@ -20,24 +19,23 @@ struct AddCategoryItemView: View {
         
         NavigationView {
             Form {
-                Section(header: Text("Add an item")) {
+                Section(header: Text("Remove item")) {
                     TextField("Name", text: $name)
                 }
             }
-            .navigationBarTitle("Item")
+            .navigationBarTitle("Remove Item")
             .navigationBarItems(leading: Button("Cancel") {
                 self.presentationMode.wrappedValue.dismiss()
-                }, trailing: Button("Add") {
-                    self.categories[self.index].addItem(self.name)
-                    save(self.categories)
+                }, trailing: Button("Remove") {
+                    self.categories[self.index].removeItem(self.name)
                     self.presentationMode.wrappedValue.dismiss()
             })
         }
     }
 }
 
-//struct AddCategoryItemView_Previews: PreviewProvider {
+//struct SubtractCategoryItemView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        AddCategoryItemView(categories: Binding<[Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)]>, index: 0)
+//        SubtractCategoryItemView()
 //    }
 //}

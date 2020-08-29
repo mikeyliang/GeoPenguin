@@ -20,7 +20,8 @@
 		74F5781524F9B9AC005963B6 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74B2358724F86B490047536E /* Poppins-Bold.ttf */; };
 		D8515C7924F9FFCD00FAB13E /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8515C7824F9FFCD00FAB13E /* GeometryGetter.swift */; };
 		D8515C7B24F9FFF000FAB13E /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8515C7A24F9FFF000FAB13E /* KeyboardGuardian.swift */; };
-		D8515C7D24FA028A00FAB13E /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8515C7C24FA028A00FAB13E /* KeyboardResponder.swift */; };
+		D8515C7F24FA1AE100FAB13E /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8515C7E24FA1AE100FAB13E /* KeyboardResponder.swift */; };
+		D8515C8124FA448F00FAB13E /* SubtractCategoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8515C8024FA448F00FAB13E /* SubtractCategoryItemView.swift */; };
 		D86CCE2124F9837E00CAB00E /* CheckboxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CCE2024F9837E00CAB00E /* CheckboxField.swift */; };
 		D86CCE2324F9887800CAB00E /* ScrollListTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CCE2224F9887800CAB00E /* ScrollListTitle.swift */; };
 		D86CCE2524F98A5C00CAB00E /* ScrollListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CCE2424F98A5C00CAB00E /* ScrollListContent.swift */; };
@@ -87,7 +88,8 @@
 		74B2358924F86B490047536E /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		D8515C7824F9FFCD00FAB13E /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		D8515C7A24F9FFF000FAB13E /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
-		D8515C7C24FA028A00FAB13E /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
+		D8515C7E24FA1AE100FAB13E /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
+		D8515C8024FA448F00FAB13E /* SubtractCategoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractCategoryItemView.swift; sourceTree = "<group>"; };
 		D86CCE2024F9837E00CAB00E /* CheckboxField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxField.swift; sourceTree = "<group>"; };
 		D86CCE2224F9887800CAB00E /* ScrollListTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollListTitle.swift; sourceTree = "<group>"; };
 		D86CCE2424F98A5C00CAB00E /* ScrollListContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollListContent.swift; sourceTree = "<group>"; };
@@ -281,7 +283,7 @@
 				D881EFCD24F9F6EC00639DF9 /* IntroViewThree.swift */,
 				D8515C7824F9FFCD00FAB13E /* GeometryGetter.swift */,
 				D8515C7A24F9FFF000FAB13E /* KeyboardGuardian.swift */,
-				D8515C7C24FA028A00FAB13E /* KeyboardResponder.swift */,
+				D8515C7E24FA1AE100FAB13E /* KeyboardResponder.swift */,
 			);
 			path = IntroViews;
 			sourceTree = "<group>";
@@ -307,6 +309,7 @@
 				D8EB3B0924F8AF1E0081CEE8 /* AddCategoryView.swift */,
 				D86CCE2024F9837E00CAB00E /* CheckboxField.swift */,
 				D86CCE2424F98A5C00CAB00E /* ScrollListContent.swift */,
+				D8515C8024FA448F00FAB13E /* SubtractCategoryItemView.swift */,
 			);
 			path = ReminderViews;
 			sourceTree = "<group>";
@@ -459,7 +462,7 @@
 				D86CCE2124F9837E00CAB00E /* CheckboxField.swift in Sources */,
 				D881EFC324F9F35B00639DF9 /* MKPolygon.swift in Sources */,
 				D8515C7B24F9FFF000FAB13E /* KeyboardGuardian.swift in Sources */,
-				D8515C7D24FA028A00FAB13E /* KeyboardResponder.swift in Sources */,
+				D8515C7F24FA1AE100FAB13E /* KeyboardResponder.swift in Sources */,
 				D881EFC424F9F35B00639DF9 /* CLLocationManager.swift in Sources */,
 				D881EFC724F9F36200639DF9 /* LocationManager.swift in Sources */,
 				D8EB3B0824F8959F0081CEE8 /* ScrollListView.swift in Sources */,
@@ -474,6 +477,7 @@
 				D881EFB424F9F33F00639DF9 /* HelperDisplayViews.swift in Sources */,
 				D881EFB724F9F33F00639DF9 /* ToolbarView.swift in Sources */,
 				D881EFB924F9F33F00639DF9 /* SheetView.swift in Sources */,
+				D8515C8124FA448F00FAB13E /* SubtractCategoryItemView.swift in Sources */,
 				D881EFB124F9F33F00639DF9 /* SwiftUIPolygonGeofence.swift in Sources */,
 				D8515C7924F9FFCD00FAB13E /* GeometryGetter.swift in Sources */,
 				D881EFCF24F9F6EC00639DF9 /* IntroViewOne.swift in Sources */,

@@ -10,10 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var showAddCategory = false
-    @State private var presentIntro = true
-    @State private var categories: [Category] = [Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)]
+    @State private var showAddCategory = loadFirstTime()
+    @State private var categories: [Category] = load()
     @State private var categoryIndex = 0
+    @State private var name: String = loadName()
+    
+    @State private var presentIntro = loadPresentIntro()
     
     var totalItems: Int {
         let array = categories
@@ -52,7 +54,7 @@ struct ContentView: View {
                 
                 HStack {
                     
-                    Text("Welcome back, Travis!").padding(.top, 30).offset(x: 50).font(.custom("Poppins-Regular", size: 15))
+                    Text("Welcome back, \(name == "" ? "User" : name)!").padding(.top, 30).offset(x: 50).font(.custom("Poppins-Regular", size: 15))
                 }
                 
                 HStack(alignment: .bottom) {
@@ -98,8 +100,6 @@ struct ContentView: View {
                             Image("add").resizable().frame(width:11, height:11).foregroundColor(.white)
                             
                         }
-                    }.sheet(isPresented: $showAddCategory) {
-                        AddCategoryView(categories: self.$categories, categoryIndex: self.$categoryIndex)
                     }
                     
                     Spacer()
@@ -109,8 +109,17 @@ struct ContentView: View {
                 ScrollListView(categories: self.$categories, categoryIndex: self.$categoryIndex).padding(.bottom, 50)
                 
             }.offset(y: 25)
-            .sheet(isPresented: $presentIntro) {
-                IntroViewOne()
+            .sheet(isPresented: $showAddCategory, onDismiss: {
+                self.presentIntro = false
+                savePresentIntro(self.presentIntro)
+                saveFirstTime(self.showAddCategory)
+            }) {
+                if(self.presentIntro == true) {
+                    IntroViewOne(name: self.$name)
+                }
+                else {
+                    AddCategoryView(categories: self.$categories, categoryIndex: self.$categoryIndex)
+                }
             }
             }.navigationBarItems(trailing: NavigationLink(destination: MapContentView()) {
                 Image(systemName: "chevron.right")

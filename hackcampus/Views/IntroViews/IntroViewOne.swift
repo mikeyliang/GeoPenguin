@@ -13,10 +13,11 @@ let lightGreyColor = Color(red: 200.0/256.0, green: 200.0/256.0, blue: 200.0/256
 struct IntroViewOne: View {
     
     @State private var action: Int? = 0
-    @State private var name: String = ""
+    @Binding var name: String
     @State private var showDetails = false
     
-    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 2)
+    @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
+//    @ObservedObject private var keyboard = KeyboardResponder()
 
     var body: some View {
         
@@ -42,7 +43,8 @@ struct IntroViewOne: View {
                     
                     Text("What's your name?").font(.custom("Poppins-Bold", size: 15)).foregroundColor(Color(red: 126/256, green: 114/256, blue: 114/256)).padding(.vertical, 30)
                     
-                    TextField("Enter Your First Name", text: $name, onEditingChanged: { if $0 { self.kGuardian.showField = 0 } }).font(.custom("Poppins-Bold", size: 10)) .padding().background(Color(red: 1, green: 1, blue: 1).opacity(0.95)).cornerRadius(30.0).padding( [.leading, .trailing], 60).shadow(color: Color.black, radius: 4, x: 0, y:2).background(GeometryGetter(rect: $kGuardian.rects[0]))
+                    TextField("Enter Your First Name", text: $name, onEditingChanged: { if $0 { self.kGuardian.showField = 0 } }, onCommit: {saveName(self.name)}).font(.custom("Poppins-Bold", size: 10)) .padding().background(Color(red: 1, green: 1, blue: 1).opacity(0.95)).cornerRadius(30.0).padding( [.leading, .trailing], 60).shadow(color: Color.black, radius: 4, x: 0, y:2)
+                        .background(GeometryGetter(rect: $kGuardian.rects[0]))
                     
                     Spacer().frame(height: 100)
                     
@@ -59,22 +61,25 @@ struct IntroViewOne: View {
                         .buttonStyle(DefaultButtonStyle())
                     }
                     Spacer().frame(height: 100)
-                }.offset(y: kGuardian.slide + 20).animation(.easeInOut(duration: 1.0))
+//                }.padding(.bottom, keyboard.currentHeight)
+//                .edgesIgnoringSafeArea(.bottom)
+//                .animation(.easeOut(duration: 0.16))
+                }.offset(y: kGuardian.slide).animation(.easeInOut(duration: 1.0))
                 
             }
+            .onAppear { self.kGuardian.addObserver() }
 
         }.navigationBarTitle("").navigationBarHidden(true).padding(.top, -8)
-        .onAppear { self.kGuardian.addObserver() }
         .onDisappear { self.kGuardian.removeObserver() }
     }
         
 }
 
-struct IntroViewOne_Previews: PreviewProvider {
-    static var previews: some View {
-        IntroViewOne()
-    }
-}
+//struct IntroViewOne_Previews: PreviewProvider {
+//    static var previews: some View {
+//        IntroViewOne()
+//    }
+//}
 
 
 

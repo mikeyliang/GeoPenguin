@@ -34,17 +34,40 @@ struct ScrollListAddButton: View {
     }
 }
 
+struct ScrollListEditButton: View {
+    
+    var body: some View {
+        ZStack {
+            
+            Rectangle().fill(LinearGradient(gradient: Gradient(colors: [Color(red: 157/256, green: 78/256, blue: 221/256), Color(red: 224/256, green: 170/256, blue: 255/256)]), startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0))).frame(width:20, height: 20).cornerRadius(15).shadow(color: Color(red: 0, green: 0, blue: 0).opacity(0.5), radius: 4, x: 1, y: 4)
+            
+            Image(systemName: "minus").frame(width:6, height:6).foregroundColor(Color.white)
+        }
+    }
+}
+
 struct LoopViews: View {
     
     @Binding var categories: [Category]
     var categoryIndex: Int
     @State private var selectedButton = 0
     @State private var showAddItem = false
+    @State private var showSubtractItem = false
     
     var body: some View {
         List {
             
             HStack {
+                Button(action: {
+                    self.selectedButton = self.categoryIndex
+                    self.showSubtractItem.toggle()
+                }) {
+                    ScrollListEditButton()
+                }
+                .padding()
+                .sheet(isPresented: self.$showSubtractItem) {
+                    SubtractCategoryItemView(categories: self.$categories, index: self.selectedButton)
+                }
                 Spacer()
                 Button(action: {
                     self.selectedButton = self.categoryIndex

@@ -35,6 +35,7 @@ struct AddCategoryView: View {
                     let category = Category(categoryName: self.name, items: [CategoryItem(itemName: self.itemName)])
                 self.categories.append(category)
                 self.categoryIndex += 1
+                save(self.categories)
                 self.presentationMode.wrappedValue.dismiss()
             })
         }
