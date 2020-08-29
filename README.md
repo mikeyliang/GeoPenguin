@@ -144,7 +144,7 @@ On the other hand, the Swift backend consisted of Apple/XCode’s MapKit to appl
 
 <br>
 
-While there exist some concerns over privacy, data protection, and user security, GeoPenguin will be implementing and designing security measures to integrate. These measures will mainly incorporate home addresses being stored in a secure cloud database and not on individual users’ devices. This prevents lower-level problems such as social media toxicity, bad reviews, and privacy breaches/problems. 
+While there exist some concerns over privacy, data protection, and user security, GeoPenguin will be implementing and designing security measures to integrate. These measures will mainly include locally storing home addresses in an encrypted file rather than an unencrypted file. This essentially helps mitigate the concerns regarding data protection, and storing it locally will ensure that the user's privacy will not be violated.
 
 <br>
 
