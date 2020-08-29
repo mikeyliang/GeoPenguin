@@ -1,6 +1,6 @@
 ![Imgur](https://i.imgur.com/jLVFaqJ.png)
 
-# __**GEOPENGUIN**__
+# __**GeoPenguin**__
 
 <br>
 
@@ -81,7 +81,7 @@ ___
 
 <br>
 
-Forgetfulness is a well-known issue among not only aging adults, but also college students. According to a research study carried out by National-Lottery.co.uk, 15 million United Kingdom Citizens, or 50% of UK’s population, will leave a cup of tea to go cold or forget where they put the keys to their house or car (Exhibit 1). Furthermore, the onslaught of COVID-19 has placed the utmost importance on wearing masks. A UNC survey https://www.unc.edu/posts/2020/07/14/student-survey-examines-public-health-attitudes/ reveals that 28% of the students say they are extremely or somewhat likely to go to parties or other large campus gatherings and 24% of those students in an undergraduate program say they are “somewhat likely” to wear a mask (Exhibit 2). Not surprisingly, a large number of students who “will likely wear a mask”, will likely forget to wear one. Given the importance of taking safety precautions amidst the coronavirus pandemic, curbing the problem of forgetfulness is now more important than ever. The combination of forgetfulness and importance of staying cautious from the severity of the coronavirus pandemic, is, will, or can cause additional outbreaks, personal danger, and other unpleasant effects on the community.  
+Forgetfulness is a well-known issue among not only aging adults, but also college students. According to a research study carried out by National-Lottery.co.uk, 15 million United Kingdom Citizens, or 50% of UK’s population, will leave a cup of tea to go cold or forget where they put the keys to their house or car. Furthermore, the onslaught of COVID-19 has placed the utmost importance on wearing masks. A UNC survey https://www.unc.edu/posts/2020/07/14/student-survey-examines-public-health-attitudes/ reveals that 28% of the students say they are extremely or somewhat likely to go to parties or other large campus gatherings and 24% of those students in an undergraduate program say they are “somewhat likely” to wear a mask. Not surprisingly, a large number of students who “will likely wear a mask”, will likely forget to wear one. Given the importance of taking safety precautions amidst the coronavirus pandemic, curbing the problem of forgetfulness is now more important than ever. The combination of forgetfulness and importance of staying cautious from the severity of the coronavirus pandemic, is, will, or can cause additional outbreaks, personal danger, and other unpleasant effects on the community.  
 
 
 <br>
@@ -95,7 +95,7 @@ In observation of the current reminder apps currently on the market, the Reminde
 
 <br>
 
-This is where GeoPenguin can help and promisingly reduce the rates of daily coronavirus infections. Our solution, GeoPenguin, is a healthcare and reminder application that emphasizes a default list of health reminders (during a pandemic) as well as personal supplies you don’t want to forget through an efficient and simple notification system. Along with some geofencing and basic distance calculations, (Team Name) can detect if a student is leaving their primary housing residence and remind them if they’ve forgotten anything they have written on the list. GeoPenguin’s functionalities sum up to tailor some of the problems students have on a day to day basis: forgetfulness, the cautious environment caused by the pandemic, and the inaccessibility to use a car on Campus to access the location feature on the IOS Reminder App.
+This is where GeoPenguin can help and promisingly reduce the rates of daily coronavirus infections. Our solution, GeoPenguin, is a healthcare and reminder application that emphasizes a default list of health reminders (during a pandemic) as well as personal supplies you don’t want to forget through an efficient and simple notification system. Along with some geofencing and basic distance calculations, GeoPenguin can detect if a student is leaving their primary housing residence and remind them if they’ve forgotten anything they have written on the list. GeoPenguin’s functionalities sum up to tailor some of the problems students have on a day to day basis: forgetfulness, the cautious environment caused by the pandemic, and the inaccessibility to use a car on Campus to access the location feature on the IOS Reminder App.
 
 <br>
 
