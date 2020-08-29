@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var showAddCategory = false
+    @State private var presentIntro = true
     @State private var categories: [Category] = [Category(categoryName: "COVID", items: [CategoryItem(itemName: "Mask"), CategoryItem(itemName: "Hand Sanitizer")], numOfItems: 2)]
     @State private var categoryIndex = 0
     
@@ -28,6 +29,8 @@ struct ContentView: View {
     var body: some View {
         
         NavigationView {
+            
+            ScrollView {
         
             VStack(alignment: .leading) {
                 
@@ -103,13 +106,18 @@ struct ContentView: View {
                 }.padding(EdgeInsets(top: 43, leading: 35, bottom: 0, trailing: 0))
                 
                 
-                ScrollListView(categories: self.$categories, categoryIndex: self.$categoryIndex)
-                
-                Spacer()
+                ScrollListView(categories: self.$categories, categoryIndex: self.$categoryIndex).padding(.bottom, 50)
                 
             }.offset(y: 25)
+            .sheet(isPresented: $presentIntro) {
+                IntroViewOne()
+            }
+            }.navigationBarItems(trailing: NavigationLink(destination: MapContentView()) {
+                Image(systemName: "chevron.right")
+                }).navigationBarTitle("")
 
-        }.navigationBarTitle("").navigationBarHidden(true)
+        }
+        
             
     }
 }
