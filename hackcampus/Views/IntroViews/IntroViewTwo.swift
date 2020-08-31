@@ -10,7 +10,7 @@ import SwiftUI
 
 struct IntroViewTwo: View {
     
-    @State var address: String = ""
+    @Binding var defaultLocation: String
     
     @ObservedObject var kGuardian: KeyboardGuardian
     
@@ -34,7 +34,7 @@ struct IntroViewTwo: View {
                     Text("Where do you live?").font(.custom("Poppins-Bold", size: 15)).foregroundColor(Color(red: 126/256, green: 114/256, blue: 114/256)).padding(EdgeInsets(top: 70, leading: 0, bottom: 50, trailing: 0))
                     
                     
-                     TextField("Enter Your Home Address", text: $address, onEditingChanged: { if $0 { self.kGuardian.showField = 0 } }).font(.custom("Poppins-Bold", size: 10)) .padding().background(Color(red: 1, green: 1, blue: 1).opacity(0.95)).cornerRadius(30.0).padding( [.leading, .trailing], 110).shadow(color: Color.black, radius: 4, x: 0, y:2)
+                    TextField("Enter Your Home Address", text: $defaultLocation, onEditingChanged: { if $0 { self.kGuardian.showField = 0 } }, onCommit: {saveLocation(self.defaultLocation)}).font(.custom("Poppins-Bold", size: 10)) .padding().background(Color(red: 1, green: 1, blue: 1).opacity(0.95)).cornerRadius(30.0).padding( [.leading, .trailing], 110).shadow(color: Color.black, radius: 4, x: 0, y:2)
                         .background(GeometryGetter(rect: $kGuardian.rects[0]))
                     
                     NavigationLink(destination: IntroViewThree()) {

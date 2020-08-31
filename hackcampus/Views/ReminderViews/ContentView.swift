@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var categories: [Category] = load()
     @State private var categoryIndex = 0
     @State private var name: String = loadName()
-    
+    @State private var defaultLocation: String = loadLocation()
     @State private var presentIntro = loadPresentIntro()
     
     var totalItems: Int {
@@ -115,7 +115,7 @@ struct ContentView: View {
                 saveFirstTime(self.showAddCategory)
             }) {
                 if(self.presentIntro == true) {
-                    IntroViewOne(name: self.$name)
+                    IntroViewOne(name: self.$name, defaultLocation: self.$defaultLocation)
                 }
                 else {
                     AddCategoryView(categories: self.$categories, categoryIndex: self.$categoryIndex)

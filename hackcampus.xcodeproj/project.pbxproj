@@ -18,6 +18,7 @@
 		74B2358B24F86B490047536E /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74B2358824F86B490047536E /* Poppins-SemiBold.ttf */; };
 		74B2358C24F86B490047536E /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74B2358924F86B490047536E /* Poppins-Regular.ttf */; };
 		74F5781524F9B9AC005963B6 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74B2358724F86B490047536E /* Poppins-Bold.ttf */; };
+		D83367B324FC9C00001B0A0E /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83367B224FC9C00001B0A0E /* DataManager.swift */; };
 		D8515C7924F9FFCD00FAB13E /* GeometryGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8515C7824F9FFCD00FAB13E /* GeometryGetter.swift */; };
 		D8515C7B24F9FFF000FAB13E /* KeyboardGuardian.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8515C7A24F9FFF000FAB13E /* KeyboardGuardian.swift */; };
 		D8515C8124FA448F00FAB13E /* SubtractCategoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8515C8024FA448F00FAB13E /* SubtractCategoryItemView.swift */; };
@@ -85,6 +86,7 @@
 		74B2358724F86B490047536E /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		74B2358824F86B490047536E /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		74B2358924F86B490047536E /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		D83367B224FC9C00001B0A0E /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D8515C7824F9FFCD00FAB13E /* GeometryGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryGetter.swift; sourceTree = "<group>"; };
 		D8515C7A24F9FFF000FAB13E /* KeyboardGuardian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGuardian.swift; sourceTree = "<group>"; };
 		D8515C8024FA448F00FAB13E /* SubtractCategoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractCategoryItemView.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				D881EFC624F9F36200639DF9 /* LocationManager.swift */,
+				D83367B224FC9C00001B0A0E /* DataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				D881EFB324F9F33F00639DF9 /* PolygonGeofence.swift in Sources */,
 				D881EFB624F9F33F00639DF9 /* MapContentView.swift in Sources */,
 				D86CCE2324F9887800CAB00E /* ScrollListTitle.swift in Sources */,
+				D83367B324FC9C00001B0A0E /* DataManager.swift in Sources */,
 				D881EFBB24F9F33F00639DF9 /* CustomSheetView.swift in Sources */,
 				D881EFB824F9F33F00639DF9 /* HelperDrawingViews.swift in Sources */,
 				D86CCE2124F9837E00CAB00E /* CheckboxField.swift in Sources */,

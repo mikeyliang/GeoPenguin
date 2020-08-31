@@ -14,6 +14,7 @@ struct IntroViewOne: View {
     
     @State private var action: Int? = 0
     @Binding var name: String
+    @Binding var defaultLocation: String
     @State private var showDetails = false
     
     @ObservedObject private var kGuardian = KeyboardGuardian(textFieldCount: 1)
@@ -47,7 +48,7 @@ struct IntroViewOne: View {
                     
                     Spacer().frame(height: 100)
                     
-                    NavigationLink(destination: IntroViewTwo(kGuardian: kGuardian)) {
+                    NavigationLink(destination: IntroViewTwo(defaultLocation: $defaultLocation, kGuardian: kGuardian)) {
                     
                         ZStack{
                             Rectangle().fill(LinearGradient(gradient: Gradient(colors: [Color(red: 157/256, green: 78/256, blue: 221/256), Color(red: 224/256, green: 170/256, blue: 255/256)]), startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0))).frame(width: 188, height: 41).cornerRadius(20).shadow(color: Color.black.opacity(0.5),radius:4,x:0,y:3)
