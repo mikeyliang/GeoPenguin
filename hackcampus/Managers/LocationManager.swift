@@ -47,6 +47,12 @@ extension LocationManager: CLLocationManagerDelegate {
         self.location = location
     }
     
+    private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.requestLocation()
+        }
+    }
+    
     // 1. user enter region
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print(manager.location!)

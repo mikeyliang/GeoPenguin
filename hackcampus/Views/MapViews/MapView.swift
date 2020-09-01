@@ -14,7 +14,7 @@ struct MapView: UIViewRepresentable {
     @ObservedObject var locationManager = LocationManager()
     let map = MKMapView()
     
-    func setupData() {
+    func setupGeofence() {
         print("Geofence started")
         // 1. check if system can monitor regions
         if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
@@ -44,13 +44,34 @@ struct MapView: UIViewRepresentable {
         }
     }
     
+    func searchLocation() -> [MKMapItem] {
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = "2180 E. Prescott Pl."
+        
+        searchRequest.region = map.region
+        let search = MKLocalSearch(request: searchRequest)
+        
+        print("Starting search")
+        // TODO: Fix returning search results
+        search.start { response, error in
+            guard let response = response else {
+                print("Error: \(error?.localizedDescription ?? "Unknown error").")
+                return
+            }
+            searchResults = response.mapItems
+        }
+        
+        return searchResults
+    }
+    
     func makeUIView(context: Context) -> MKMapView {
         map.showsUserLocation = true
         map.userTrackingMode = .follow
         map.delegate = context.coordinator
         
         
-        setupData()
+        setupGeofence()
+        let locationResults = searchLocation()
         // TODO: Annotation for all Locations
 //        let annotation = MKPointAnnotation()
 //        annotation.title = "Test"
