@@ -12,8 +12,10 @@ import MapKit
 struct MapView: UIViewRepresentable {
     
     @ObservedObject var locationManager = LocationManager()
+    @Binding var defaultLocation: String
     let map = MKMapView()
     
+    // TODO: Remove annotation in geofencing and incorporate geofencing in searchlocation
     func setupGeofence() {
         print("Geofence started")
         // 1. check if system can monitor regions
@@ -33,7 +35,7 @@ struct MapView: UIViewRepresentable {
             let restaurantAnnotation = MKPointAnnotation()
             restaurantAnnotation.coordinate = coordinate;
             restaurantAnnotation.title = "\(title)";
-            map.addAnnotation(restaurantAnnotation)
+//            map.addAnnotation(restaurantAnnotation)
      
             // 5. setup circle
             let circle = MKCircle(center: coordinate, radius: regionRadius)
@@ -44,24 +46,37 @@ struct MapView: UIViewRepresentable {
         }
     }
     
-    func searchLocation() -> [MKMapItem] {
+    func searchLocation(mapView: MKMapView) {
         let searchRequest = MKLocalSearch.Request()
-        searchRequest.naturalLanguageQuery = "2180 E. Prescott Pl."
+        searchRequest.naturalLanguageQuery = defaultLocation
         
         searchRequest.region = map.region
         let search = MKLocalSearch(request: searchRequest)
         
         print("Starting search")
-        // TODO: Fix returning search results
         search.start { response, error in
-            guard let response = response else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error").")
-                return
+            if (error == nil) {
+                guard let response = response else {
+                    print("Error: \(error?.localizedDescription ?? "Unknown error").")
+                    return
+                }
+                
+                let placeMarks: NSMutableArray = NSMutableArray()
+                
+                print(response.mapItems.count)
+                for res in response.mapItems {
+                    placeMarks.add(res.placemark)
+                }
+                
+//                print("Success! Showed \(placeMarks)")
+                mapView.removeAnnotations(mapView.annotations)
+                mapView.showAnnotations(placeMarks as! [MKAnnotation], animated: true)
             }
-            searchResults = response.mapItems
+            else {
+                print("SEARCH ERROR: \(String(describing: error))")
+            }
         }
         
-        return searchResults
     }
     
     func makeUIView(context: Context) -> MKMapView {
@@ -71,7 +86,7 @@ struct MapView: UIViewRepresentable {
         
         
         setupGeofence()
-        let locationResults = searchLocation()
+        searchLocation(mapView: map)
         // TODO: Annotation for all Locations
 //        let annotation = MKPointAnnotation()
 //        annotation.title = "Test"
@@ -91,8 +106,8 @@ struct MapView: UIViewRepresentable {
     }
 }
 
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
-    }
-}
+//struct MapView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MapView()
+//    }
+//}

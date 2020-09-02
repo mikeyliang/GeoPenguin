@@ -121,7 +121,7 @@ struct ContentView: View {
                     AddCategoryView(categories: self.$categories, categoryIndex: self.$categoryIndex)
                 }
             }
-            }.navigationBarItems(trailing: NavigationLink(destination: MapContentView()) {
+            }.navigationBarItems(trailing: NavigationLink(destination: MapContentView(defaultLocation: self.$defaultLocation)) {
                 Image(systemName: "chevron.right")
                 }).navigationBarTitle("")
 

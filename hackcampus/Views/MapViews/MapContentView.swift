@@ -20,6 +20,7 @@ struct MapContentView: View {
     
     @State private var currentHeight: CGFloat = 150.0
     @State private var movingOffset: CGFloat = 150.0
+    @Binding var defaultLocation: String
     
     @ObservedObject var locationManager = LocationManager()
     
@@ -27,7 +28,7 @@ struct MapContentView: View {
         
         return NavigationView {
             ZStack(alignment: .bottom) {
-                MapView()
+                MapView(defaultLocation: self.$defaultLocation)
                     .edgesIgnoringSafeArea(.all)
                     .sheet(isPresented: $locationManager.showAlert) {
                         Text("Entered Region")
@@ -39,8 +40,8 @@ struct MapContentView: View {
     }
 }
 
-struct MapContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapContentView()
-    }
-}
+//struct MapContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MapContentView()
+//    }
+//}
