@@ -15,14 +15,14 @@ struct MapView: UIViewRepresentable {
     @Binding var defaultLocation: String
     let map = MKMapView()
     
-    // TODO: Remove annotation in geofencing and incorporate geofencing in searchlocation
-    func setupGeofence() {
+    // TODO: Finish adding placemark info into geofencing
+    func setupGeofence(placemark: [MKAnnotation]) {
         print("Geofence started")
         // 1. check if system can monitor regions
         if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
      
             // 2. region data
-            let title = "Home"
+            let title = "Test"
             let coordinate = CLLocationCoordinate2DMake(37.703026, -121.759735)
             let regionRadius = 500.0
      
@@ -39,7 +39,7 @@ struct MapView: UIViewRepresentable {
      
             // 5. setup circle
             let circle = MKCircle(center: coordinate, radius: regionRadius)
-            map.addOverlay(circle)
+//            map.addOverlay(circle)
         }
         else {
             print("System can't track regions")
@@ -68,9 +68,8 @@ struct MapView: UIViewRepresentable {
                     placeMarks.add(res.placemark)
                 }
                 
-//                print("Success! Showed \(placeMarks)")
-                mapView.removeAnnotations(mapView.annotations)
                 mapView.showAnnotations(placeMarks as! [MKAnnotation], animated: true)
+                self.setupGeofence(placemark: placeMarks as! [MKAnnotation])
             }
             else {
                 print("SEARCH ERROR: \(String(describing: error))")
@@ -85,7 +84,7 @@ struct MapView: UIViewRepresentable {
         map.delegate = context.coordinator
         
         
-        setupGeofence()
+//        setupGeofence()
         searchLocation(mapView: map)
         // TODO: Annotation for all Locations
 //        let annotation = MKPointAnnotation()
