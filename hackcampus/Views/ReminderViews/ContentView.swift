@@ -36,7 +36,6 @@ struct ContentView: View {
         
             VStack(alignment: .leading) {
                 
-                
                 HStack {
                     Text("Worry Less.").offset(x: 48).font(.custom("Poppins-SemiBold", size: 30))
                     

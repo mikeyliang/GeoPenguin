@@ -25,14 +25,10 @@
 		D86CCE2124F9837E00CAB00E /* CheckboxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CCE2024F9837E00CAB00E /* CheckboxField.swift */; };
 		D86CCE2324F9887800CAB00E /* ScrollListTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CCE2224F9887800CAB00E /* ScrollListTitle.swift */; };
 		D86CCE2524F98A5C00CAB00E /* ScrollListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86CCE2424F98A5C00CAB00E /* ScrollListContent.swift */; };
-		D881EFB124F9F33F00639DF9 /* SwiftUIPolygonGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881EFA524F9F33F00639DF9 /* SwiftUIPolygonGeofence.swift */; };
 		D881EFB224F9F33F00639DF9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881EFA624F9F33F00639DF9 /* SettingsView.swift */; };
-		D881EFB324F9F33F00639DF9 /* PolygonGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881EFA724F9F33F00639DF9 /* PolygonGeofence.swift */; };
-		D881EFB424F9F33F00639DF9 /* HelperDisplayViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881EFA824F9F33F00639DF9 /* HelperDisplayViews.swift */; };
 		D881EFB524F9F33F00639DF9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881EFA924F9F33F00639DF9 /* MapView.swift */; };
 		D881EFB624F9F33F00639DF9 /* MapContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881EFAA24F9F33F00639DF9 /* MapContentView.swift */; };
 		D881EFB724F9F33F00639DF9 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881EFAB24F9F33F00639DF9 /* ToolbarView.swift */; };
-		D881EFB824F9F33F00639DF9 /* HelperDrawingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881EFAC24F9F33F00639DF9 /* HelperDrawingViews.swift */; };
 		D881EFB924F9F33F00639DF9 /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881EFAD24F9F33F00639DF9 /* SheetView.swift */; };
 		D881EFBA24F9F33F00639DF9 /* ToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881EFAE24F9F33F00639DF9 /* ToolbarButton.swift */; };
 		D881EFBB24F9F33F00639DF9 /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881EFAF24F9F33F00639DF9 /* CustomSheetView.swift */; };
@@ -96,14 +92,10 @@
 		D86CE57B24FAFD5800C7F63F /* location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = location.gpx; sourceTree = "<group>"; };
 		D881EFA224F9F32A00639DF9 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		D881EFA324F9F32A00639DF9 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
-		D881EFA524F9F33F00639DF9 /* SwiftUIPolygonGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIPolygonGeofence.swift; sourceTree = "<group>"; };
 		D881EFA624F9F33F00639DF9 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		D881EFA724F9F33F00639DF9 /* PolygonGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolygonGeofence.swift; sourceTree = "<group>"; };
-		D881EFA824F9F33F00639DF9 /* HelperDisplayViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperDisplayViews.swift; sourceTree = "<group>"; };
 		D881EFA924F9F33F00639DF9 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		D881EFAA24F9F33F00639DF9 /* MapContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapContentView.swift; sourceTree = "<group>"; };
 		D881EFAB24F9F33F00639DF9 /* ToolbarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
-		D881EFAC24F9F33F00639DF9 /* HelperDrawingViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperDrawingViews.swift; sourceTree = "<group>"; };
 		D881EFAD24F9F33F00639DF9 /* SheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
 		D881EFAE24F9F33F00639DF9 /* ToolbarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarButton.swift; sourceTree = "<group>"; };
 		D881EFAF24F9F33F00639DF9 /* CustomSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
@@ -228,14 +220,10 @@
 		D881EFA424F9F33F00639DF9 /* MapViews */ = {
 			isa = PBXGroup;
 			children = (
-				D881EFA524F9F33F00639DF9 /* SwiftUIPolygonGeofence.swift */,
 				D881EFA624F9F33F00639DF9 /* SettingsView.swift */,
-				D881EFA724F9F33F00639DF9 /* PolygonGeofence.swift */,
-				D881EFA824F9F33F00639DF9 /* HelperDisplayViews.swift */,
 				D881EFA924F9F33F00639DF9 /* MapView.swift */,
 				D881EFAA24F9F33F00639DF9 /* MapContentView.swift */,
 				D881EFAB24F9F33F00639DF9 /* ToolbarView.swift */,
-				D881EFAC24F9F33F00639DF9 /* HelperDrawingViews.swift */,
 				D881EFAD24F9F33F00639DF9 /* SheetView.swift */,
 				D881EFAE24F9F33F00639DF9 /* ToolbarButton.swift */,
 				D881EFAF24F9F33F00639DF9 /* CustomSheetView.swift */,
@@ -456,12 +444,10 @@
 				D881EFCA24F9F36800639DF9 /* RoundedShape.swift in Sources */,
 				D881EFBC24F9F33F00639DF9 /* EditView.swift in Sources */,
 				7455E88F24F7021900D42F35 /* AppDelegate.swift in Sources */,
-				D881EFB324F9F33F00639DF9 /* PolygonGeofence.swift in Sources */,
 				D881EFB624F9F33F00639DF9 /* MapContentView.swift in Sources */,
 				D86CCE2324F9887800CAB00E /* ScrollListTitle.swift in Sources */,
 				D83367B324FC9C00001B0A0E /* DataManager.swift in Sources */,
 				D881EFBB24F9F33F00639DF9 /* CustomSheetView.swift in Sources */,
-				D881EFB824F9F33F00639DF9 /* HelperDrawingViews.swift in Sources */,
 				D86CCE2124F9837E00CAB00E /* CheckboxField.swift in Sources */,
 				D881EFC324F9F35B00639DF9 /* MKPolygon.swift in Sources */,
 				D8515C7B24F9FFF000FAB13E /* KeyboardGuardian.swift in Sources */,
@@ -476,11 +462,9 @@
 				D8EB3B0D24F8B86E0081CEE8 /* Category.swift in Sources */,
 				D881EFB224F9F33F00639DF9 /* SettingsView.swift in Sources */,
 				D881EFBF24F9F35300639DF9 /* Coordinator.swift in Sources */,
-				D881EFB424F9F33F00639DF9 /* HelperDisplayViews.swift in Sources */,
 				D881EFB724F9F33F00639DF9 /* ToolbarView.swift in Sources */,
 				D881EFB924F9F33F00639DF9 /* SheetView.swift in Sources */,
 				D8515C8124FA448F00FAB13E /* SubtractCategoryItemView.swift in Sources */,
-				D881EFB124F9F33F00639DF9 /* SwiftUIPolygonGeofence.swift in Sources */,
 				D8515C7924F9FFCD00FAB13E /* GeometryGetter.swift in Sources */,
 				D881EFCF24F9F6EC00639DF9 /* IntroViewOne.swift in Sources */,
 				7455E89324F7021900D42F35 /* ContentView.swift in Sources */,

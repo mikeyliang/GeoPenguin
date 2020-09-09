@@ -31,7 +31,7 @@ struct MapContentView: View {
                 MapView(defaultLocation: self.$defaultLocation)
                     .edgesIgnoringSafeArea(.all)
                     .sheet(isPresented: $locationManager.showAlert) {
-                        Text("Entered Region")
+                        Text("Exit Region")
                 }
 
                 CustomSheetView(currentHeight: self.$currentHeight, movingOffset: self.$movingOffset)

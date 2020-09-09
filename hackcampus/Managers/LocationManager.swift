@@ -23,11 +23,6 @@ class LocationManager: NSObject, ObservableObject, MKMapViewDelegate {
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         
-//        let geofenceRegionCenter = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude)
-//        let geofenceRegion = CLCircularRegion(center: geofenceRegionCenter, radius: 1, identifier: "notifymeonExit")
-//        geofenceRegion.notifyOnExit = true
-//        geofenceRegion.notifyOnEntry = false
-//        self.locationManager.startMonitoring(for: geofenceRegion)
     }
     
     func startMonitoring(for region: CLCircularRegion) {
@@ -56,13 +51,13 @@ extension LocationManager: CLLocationManagerDelegate {
     // 1. user enter region
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print(manager.location!)
-        self.showAlert = true
+        self.showAlert = false
         print("Geofence enter")
     }
      
     // 2. user exit region
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        self.showAlert = false
+        self.showAlert = true
         print("Geofence exit")
     }
 }

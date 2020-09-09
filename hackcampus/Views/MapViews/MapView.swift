@@ -15,31 +15,25 @@ struct MapView: UIViewRepresentable {
     @Binding var defaultLocation: String
     let map = MKMapView()
     
-    // TODO: Finish adding placemark info into geofencing
     func setupGeofence(placemark: [MKAnnotation]) {
         print("Geofence started")
         // 1. check if system can monitor regions
         if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
      
             // 2. region data
-            let title = "Test"
-            let coordinate = CLLocationCoordinate2DMake(37.703026, -121.759735)
+            let title = placemark.first?.title ?? "Default Title"
+            let coordinate = CLLocationCoordinate2DMake(placemark.first?.coordinate.latitude ?? 0, placemark.first?.coordinate.longitude ?? 0)
             let regionRadius = 500.0
      
             // 3. setup region
             let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude,
-                longitude: coordinate.longitude), radius: regionRadius, identifier: title)
+                longitude: coordinate.longitude), radius: regionRadius, identifier: title!)
             locationManager.startMonitoring(for: region)
      
-            // 4. setup annotation
-            let restaurantAnnotation = MKPointAnnotation()
-            restaurantAnnotation.coordinate = coordinate;
-            restaurantAnnotation.title = "\(title)";
-//            map.addAnnotation(restaurantAnnotation)
-     
-            // 5. setup circle
+            // 4. setup circle
+            // TODO: Remove Circle
             let circle = MKCircle(center: coordinate, radius: regionRadius)
-//            map.addOverlay(circle)
+            map.addOverlay(circle)
         }
         else {
             print("System can't track regions")
@@ -63,7 +57,6 @@ struct MapView: UIViewRepresentable {
                 
                 let placeMarks: NSMutableArray = NSMutableArray()
                 
-                print(response.mapItems.count)
                 for res in response.mapItems {
                     placeMarks.add(res.placemark)
                 }
@@ -83,9 +76,8 @@ struct MapView: UIViewRepresentable {
         map.userTrackingMode = .follow
         map.delegate = context.coordinator
         
-        
-//        setupGeofence()
         searchLocation(mapView: map)
+        
         // TODO: Annotation for all Locations
 //        let annotation = MKPointAnnotation()
 //        annotation.title = "Test"
