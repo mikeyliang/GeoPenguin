@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var name: String = loadName()
     @State private var defaultLocation: String = loadLocation()
     @State private var presentIntro = loadPresentIntro()
+    @State private var loadShowing = false
     
     var totalItems: Int {
         let array = categories
@@ -32,101 +33,141 @@ struct ContentView: View {
         
         NavigationView {
             
-            ScrollView {
-        
-            VStack(alignment: .leading) {
+            ZStack {
                 
-                HStack {
-                    Text("Worry Less.").offset(x: 48).font(.custom("Poppins-SemiBold", size: 30))
-                    
-                    Spacer()
+                ScrollView {
                 
-                }
-                
-                HStack {
-                
-                    Text("Remember More.").padding(.top, 2).offset(x: 60).font(.custom("Poppins-SemiBold", size: 20))
-                    
-                    Spacer()
-                
-                }.padding(.bottom, 50)
-                
-                HStack {
-                    
-                    Text("Welcome back, \(name == "" ? "User" : name)!").padding(.top, 30).offset(x: 50).font(.custom("Poppins-Regular", size: 15))
-                }
-                
-                HStack(alignment: .bottom) {
-                     
-                        VStack {
-                           
-                            ZStack {
+                        VStack(alignment: .leading) {
                             
-                                Rectangle()
-                                    .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 157/256, green: 78/256, blue: 221/256), Color(red: 224/256, green: 170/256, blue: 255/256)]), startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0))).frame(width: 63, height: 30).cornerRadius(15).shadow(color: Color(red: 0, green: 0, blue: 0).opacity(0.5), radius: 4, x: 1, y: 4)
+                            HStack {
+                                Text("Worry Less.").offset(x: 48).font(.custom("Poppins-SemiBold", size: 30))
                                 
-                                HStack(alignment: .top) {
-                                    Image("bell").resizable().frame(width: 12, height: 12)
+                                Spacer()
+                            
+                            }
+                            
+                            HStack {
+                            
+                                Text("Remember More.").padding(.top, 2).offset(x: 60).font(.custom("Poppins-SemiBold", size: 20))
+                                
+                                Spacer()
+                            
+                            }.padding(.bottom, 50)
+                            
+                            HStack {
+                                
+                                Text("Welcome back, \(name == "" ? "User" : name)!").padding(.top, 30).offset(x: 50).font(.custom("Poppins-Regular", size: 15))
+                            }
+                            
+                            HStack(alignment: .bottom) {
+                                 
+                                    VStack {
+                                       
+                                        ZStack {
+                                        
+                                            Rectangle()
+                                                .fill(LinearGradient(gradient: Gradient(colors: [Color(red: 157/256, green: 78/256, blue: 221/256), Color(red: 224/256, green: 170/256, blue: 255/256)]), startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0))).frame(width: 63, height: 30).cornerRadius(15).shadow(color: Color(red: 0, green: 0, blue: 0).opacity(0.5), radius: 4, x: 1, y: 4)
+                                            
+                                            HStack(alignment: .top) {
+                                                Image("bell").resizable().frame(width: 12, height: 12)
+                                                
+                                                Text("\(totalItems)").font(.custom("Poppins-Bold", size: 10)).foregroundColor(.white)
+                                                
+                                            }
                                     
-                                    Text("\(totalItems)").font(.custom("Poppins-Bold", size: 10)).foregroundColor(.white)
-                                    
+                                    }
+                                
                                 }
-                        
-                        }
-                    
-                    }
-                    VStack {
-                        Image("Reminder Supplies Photo").resizable().frame(width: 236, height: 133)
-                    }.offset(x: 32)
-                    
-                    
-                }.offset(x:40)
-                    
-                
-                HStack {
-                    // Vertical Line + Add Category
-                    Rectangle().fill(Color(red: 235/256, green: 235/256, blue: 235/256)).frame(width: 250, height: 2).cornerRadius(100)
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        self.showAddCategory.toggle()
-                    }) {
-                        ZStack {
-                        
-                            Rectangle().fill(LinearGradient(gradient: Gradient(colors: [Color(red: 157/256, green: 78/256, blue: 221/256), Color(red: 224/256, green: 170/256, blue: 255/256)]), startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0))).frame(width:30, height: 30).cornerRadius(15).shadow(color: Color(red: 0, green: 0, blue: 0).opacity(0.5), radius: 4, x: 1, y: 4)
+                                VStack {
+                                    Image("Reminder Supplies Photo").resizable().frame(width: 236, height: 133)
+                                }.offset(x: 32)
+                                
+                                
+                            }.offset(x:40)
+                                
                             
-                            Image("add").resizable().frame(width:11, height:11).foregroundColor(.white)
+                            HStack {
+                                // Vertical Line + Add Category
+                                Rectangle().fill(Color(red: 235/256, green: 235/256, blue: 235/256)).frame(width: 250, height: 2).cornerRadius(100)
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    self.showAddCategory.toggle()
+                                }) {
+                                    ZStack {
+                                    
+                                        Rectangle().fill(LinearGradient(gradient: Gradient(colors: [Color(red: 157/256, green: 78/256, blue: 221/256), Color(red: 224/256, green: 170/256, blue: 255/256)]), startPoint: UnitPoint(x: 0, y: 1), endPoint: UnitPoint(x: 1, y: 0))).frame(width:30, height: 30).cornerRadius(15).shadow(color: Color(red: 0, green: 0, blue: 0).opacity(0.5), radius: 4, x: 1, y: 4)
+                                        
+                                        Image("add").resizable().frame(width:11, height:11).foregroundColor(.white)
+                                        
+                                    }
+                                }
+                                
+                                Spacer()
+                            }.padding(EdgeInsets(top: 43, leading: 35, bottom: 0, trailing: 0))
                             
+                            
+                            ScrollListView(categories: self.$categories, categoryIndex: self.$categoryIndex).padding(.bottom, 50)
+                            
+                        }.offset(y: 25)
+                        .sheet(isPresented: $showAddCategory, onDismiss: {
+                            self.presentIntro = false
+                            savePresentIntro(self.presentIntro)
+                            saveFirstTime(self.showAddCategory)
+                        }) {
+                            if(self.presentIntro == true) {
+                                IntroViewOne(name: self.$name, defaultLocation: self.$defaultLocation)
+                            }
+                            else {
+                                AddCategoryView(categories: self.$categories, categoryIndex: self.$categoryIndex)
+                            }
                         }
-                    }
-                    
-                    Spacer()
-                }.padding(EdgeInsets(top: 43, leading: 35, bottom: 0, trailing: 0))
+                        //TODO: Add activity indicator
+                    }.navigationBarItems(trailing: NavigationLink(destination: MapContentView(defaultLocation: self.$defaultLocation)) {
+                        Image(systemName: "chevron.right")
+                        }).navigationBarTitle("")
                 
-                
-                ScrollListView(categories: self.$categories, categoryIndex: self.$categoryIndex).padding(.bottom, 50)
-                
-            }.offset(y: 25)
-            .sheet(isPresented: $showAddCategory, onDismiss: {
-                self.presentIntro = false
-                savePresentIntro(self.presentIntro)
-                saveFirstTime(self.showAddCategory)
-            }) {
-                if(self.presentIntro == true) {
-                    IntroViewOne(name: self.$name, defaultLocation: self.$defaultLocation)
+                VStack {
+                    Text("Loading...")
+                    ActivityIndicator(isAnimating: .constant(true), style: .large)
                 }
-                else {
-                    AddCategoryView(categories: self.$categories, categoryIndex: self.$categoryIndex)
-                }
+                .frame(width: 300, height: 300)
+                .background(Color.secondary.colorInvert())
+                .foregroundColor(Color.primary)
+                .cornerRadius(20)
+                .opacity(self.loadShowing ? 1 : 0)
             }
-            }.navigationBarItems(trailing: NavigationLink(destination: MapContentView(defaultLocation: self.$defaultLocation)) {
-                Image(systemName: "chevron.right")
-                }).navigationBarTitle("")
 
         }
         
             
+    }
+}
+
+struct ActivityIndicator: UIViewRepresentable {
+
+    @Binding var isAnimating: Bool
+    let style: UIActivityIndicatorView.Style
+
+    func makeUIView(context: UIViewRepresentableContext<ActivityIndicator>) -> UIActivityIndicatorView {
+        return UIActivityIndicatorView(style: style)
+    }
+
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
+        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+    }
+}
+
+struct StaticHighPriorityButtonStyle: PrimitiveButtonStyle {
+    @State private var pressed = false
+    func makeBody(configuration: PrimitiveButtonStyle.Configuration) -> some View {
+        let gesture = TapGesture()
+            .onEnded { _ in configuration.trigger() }
+
+        return configuration.label
+            .opacity(pressed ? 0.5 : 1.0)
+            .highPriorityGesture(gesture)
     }
 }
 
