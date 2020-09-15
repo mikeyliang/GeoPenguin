@@ -50,14 +50,37 @@ extension LocationManager: CLLocationManagerDelegate {
     
     // 1. user enter region
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print(manager.location!)
-        self.showAlert = false
-        print("Geofence enter")
+        print("Entered Geofence Region")
+        let content = UNMutableNotificationContent()
+        content.title = "Feed the cat"
+        content.subtitle = "You entered the region"
+        content.sound = UNNotificationSound.default
+
+        // show this notification five seconds from now
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+
+        // choose a random identifier
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+        // add our notification request
+        UNUserNotificationCenter.current().add(request)
     }
      
     // 2. user exit region
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        self.showAlert = true
-        print("Geofence exit")
+        print("Exited Geofenced Region")
+        let content = UNMutableNotificationContent()
+        content.title = "Make sure to feed the cat"
+        content.subtitle = "You have exited the region"
+        content.sound = UNNotificationSound.default
+
+        // show this notification five seconds from now
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+
+        // choose a random identifier
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+        // add our notification request
+        UNUserNotificationCenter.current().add(request)
     }
 }

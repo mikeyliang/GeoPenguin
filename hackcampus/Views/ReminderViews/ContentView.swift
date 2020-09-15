@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
     
@@ -27,6 +28,16 @@ struct ContentView: View {
         }
         
         return totalNumber
+    }
+    
+    init() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                print("All set!")
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
     }
 
     var body: some View {
@@ -156,18 +167,6 @@ struct ActivityIndicator: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<ActivityIndicator>) {
         isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
-    }
-}
-
-struct StaticHighPriorityButtonStyle: PrimitiveButtonStyle {
-    @State private var pressed = false
-    func makeBody(configuration: PrimitiveButtonStyle.Configuration) -> some View {
-        let gesture = TapGesture()
-            .onEnded { _ in configuration.trigger() }
-
-        return configuration.label
-            .opacity(pressed ? 0.5 : 1.0)
-            .highPriorityGesture(gesture)
     }
 }
 

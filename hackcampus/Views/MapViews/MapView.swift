@@ -32,8 +32,8 @@ struct MapView: UIViewRepresentable {
      
             // 4. setup circle
             // TODO: Remove Circle
-            let circle = MKCircle(center: coordinate, radius: regionRadius)
-            map.addOverlay(circle)
+//            let circle = MKCircle(center: coordinate, radius: regionRadius)
+//            map.addOverlay(circle)
         }
         else {
             print("System can't track regions")
